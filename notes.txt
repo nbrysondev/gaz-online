@@ -1,0 +1,133 @@
+C:\Program Files (x86)\Gazillionaire III v3.04
+
+// After ship select;
+    // Zinn info
+    Mr. Zinn, a wealthy and somewhat fickle financier, generously loans you the 120,000 kubars necessary to get your company going.
+    However, you must pay Mr. Zinn 4% interest per week.
+    Mr. Zinn wishes you the best of luck on your new venture and hopes he will never have to repossess your ship.
+    // Summary page 
+    // Planet screen
+
+// Difficulty settings
+Tut: ship: 100,000, startcash: 50,000, commodmin: x1
+Novice: ship:110,000, startcash: 25,000, commodmin: x1
+Beginner: ship:120,000, startcash: 0, commodmin: x2
+Intermediate: ship:130,000, startcash: 0, commodmin: x3
+Expert: ship:140,000, startcash: 0, commodmin: x4
+Master: ship:150,000, startcash: 0, commodmin: x5
+
+// Statuses
+Merchant, Business Person, Trader, Entrepreneur
+-238,000 (Unprosperous)
+-50,000 (Unfortunate)
+-55,000 (Inefficient)
+-120,000 (Needy)
+
+// Game State
+Week number
+Difficulty level
+
+// Other values
+Victory amount - 5,000,000
+
+// On select event
+    ==almost game over==
+    If you leave the planet now you will go bankrupt and lose the game! You cannot owe more than 100,000 kubars to the Traders' Union.
+    Do you want to return to the Planet menu and try to straighten out your finances?
+    If you click on No, you will leave the planet and lose the game. If you click on Yes, you will return to the Main Menu.
+
+
+// On departure events
+    ==Facility Auction==
+    In an attempt to promote free trade in the Kukubian Colonies, the Emperor is privatizing governmnet-owned facilities. 
+    This week, Dread is auctioning off
+    the (Customs Office|Assembly Planet|Shipping Dry Docks) on {{current-planet}} to the highest bidder. The company that buys the facility can charge other companies 2,201 kubars every time they visit
+    Zile. 
+    You must now input your <secret> bid. You will be notified of the auction results at the beginning of your next turn. 
+
+    ==Ship Action==
+    The Traders' Union is auctioning off a 200-ton ship upgrade to the highest bidder.
+    The company that purchases this upgrade will be able to trade in their old ship for a new, larger ship.
+    You must now input your <secret> bid. You will be notified of the auction results at the beginning of your next turn. 
+
+// Just after hyperspace events
+   {{companyName}} invests heavily in the stock market. (OK)
+   {{companyName}} meets with {{investorName}} to discuss financial matters.
+   {{companyName}} hires Teeter to upgrade its ship.
+   {{companyName}} travels to Xeen and hires a mechanic to turbocharge its ship's engine.
+   {{companyName}} suffers major damange in a Stellar Typhoon.
+   {{companyName}}'s insurance costs fall.
+   {{companyName}}'s navigator makes a serious error.
+
+   ==Ship Stranded==
+   You are stopped by a broken-down spaceship flashing a distress signal. The captain, Curtonian Plus, asks if you will loan him 6,000 kubars to repair his ship so he can return to
+   Vexx. He promises to pay you back just as soon as he arrvies home, and the Traders' Union is willing to loan you enough to cover the cost right now.
+   Do you want to lend him the money? (yes|no)
+
+   ==Cargo Disaster==
+   Due to faulty wiring, your cargo hold overheats and all of your cargo is destroyed
+
+   ==Emperor Dred Nicolson==
+   Supreme Commander Dred Nicolson grants your business an emergency tax break. 
+   That means you don't have to pay {{amount}} kubars in taxes! You now owe 0 kubars in taxes and tariffs.
+
+   ==Warehouse Space For Sale==
+   For only {{amount}} kubars, you have the opportunity to increase your warehouse space form 50 tons to 100 tons on every planet. The Traders' Union is willing to loan you
+   the money to cover the cost and raise your credit limit by {{amount}} kubars. 
+   Do you want to do it? (yes|no)
+
+   ==Quaso Mutta==
+   The ghost like spirit of the venerated Quaso Mutta appears before you. The spirit warns you not to travel to Xeen or your luck will change for the worse.
+   Instead, you should travel to {{planetName}} immediately.
+   Do you take this advice and travel to Bass? (yes|no)
+
+    ==Lawsuit==
+    A crew member gets into an accident while at work, and the United Space Workers' Union sues your company.
+    Your company loses, and the court awards the crew member {{amount}} kubars.
+    {{traders union message if in debt}}
+
+    ==Out of Fuel==
+    Your ship has run out of fuel. You must pay 42,000 lubars to have a tanker come out and refuel your ship.
+    {{traders union message if in debt}}
+
+    ==Travel Delayed==
+    1) To make matters worse, it will take you considerably longer than expected to reach your destination planet.
+    2) Because of the mishap you had, ...
+
+    ==Union Boss==
+    Unwilling to be treated as slave labour, your crew goes on strike! They demand that you raise their weekly salary or they won't come back.
+    To settle this trike, you are forced to pay 42,000 kubars in back wages and raise your crew's weekly salary by 500 kubars per person.
+    {{traders union message if in debt}}
+
+// After New Turn events
+    ==Auction results==
+    {{company}} won the auction! 
+    {{company}} bid highest, purchasing the Customs Office on Zile for 60,280 kubars.
+    The next highest was {{company}} with a bid of 44,478 kubars.
+
+    ==Fuel Prices Plummet==
+    Due to a glut of guel on the market, fuel prices are falling.
+    You can expect to see lower prices at the refueling docks in the coming weeks.
+
+    ==Lower Import Tariff Rate==
+    In order to stimulate trade, the Imperial Government lowers the import tariff rate from 3% to 2%.
+
+    ==Pay Facility Fees==
+    You must pay {{amount}} kubars in facility fees while visiting {{planetName}}.
+    This money goes to the companies who own the facilities.
+    You don't have enough to cover the cost, so the Traders' Union steps in and loans you the difference.
+
+// Game over events
+    =={{companyName}} Bankrupts!!!==
+    click to continue
+
+    ==Headline News==
+    Big news on the financial front. {{companyName}} has gone bankrupt! Our sources inform us that all the assets are 
+    being liquidated to pay off creditors. We have reports of angry citizens taking to the streets demanding a full
+    investigation, but there is little anyone can do.
+    {{companyName}} is too deeply in debt to continue operating, and no financial institution is willing to lend it
+    any more money.
+    The latest word from the capital is that Supreme Commander Dred Nicolson is terribly upset over the bankruptcy. The 
+    Supreme Commander addressed the Kukubian Senate this morning saying that what happened to {{companyName}} is a big setback
+    for the Empire. At the end of his speec, Dred Nicolson promised to do his best to end this game before the Kukubian Colonies
+    suffer any further.
