@@ -1,0 +1,23 @@
+<div style="display: inline-block; width: 49%;">
+  <gaz-menu-item label="Start New Game" link="new"></gaz-menu-item>
+  <gaz-menu-item label="Load Saved Game" (onClick)="changeMenuState(states.NewGame)"></gaz-menu-item>
+  <gaz-menu-item label="Load Group Game" (onClick)="changeMenuState(states.NewGame)"></gaz-menu-item>
+  <gaz-menu-item label="About {{title}}" (onClick)="changeMenuState(states.NewGame)"></gaz-menu-item>
+  <gaz-menu-item label="About LavaMind" (onClick)="changeMenuState(states.NewGame)"></gaz-menu-item>
+  <gaz-menu-item label="Sound On" (onClick)="toggleSound()"></gaz-menu-item>
+</div>
+<div style="display: inline-block; width: 49%;">
+  <h1>
+    Welcome to {{title}}
+  </h1>
+  <p>
+    For the first time in 700 years, Emperor Dred Nicolson has granted you and a handful of other newly formed trading companies
+    permission to operate inside the Kukubian Colonies.
+  </p>
+  <p>
+    As president of a trading company, you must make a profit transporting essential commodities between the seven planets of Kukubia.
+  </p>
+  <p>
+    Your goal is to build a trade empire by investing in larger ships, buying warehouses and skillfully out-maneuvering your competitors.
+  </p>
+</div>

@@ -1,5 +1,19 @@
 import {Routes, RouterModule} from '@angular/router';
-
+// Menu components
+import {MainMenuComponent,CompetitorsMenuComponent, DifficultyMenuComponent, PlanetsMenuComponent,
+        PlayersMenuComponent, ShipMenuComponent} from './components/menus';
+// Core component
+import {GameComponent, DepartComponent, GraphsComponent, HelpComponent, HyperspaceComponent,
+       NewGameComponent, NewWeekComponent} from './components';
+// Planet landing components
+import {PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, InsuranceComponent,
+        LenderLoanComponent, LoanComponent, MarketplaceComponent, PassengersComponent, StockMarketComponent,
+        SupplyComponent, TaxesComponent, WagesComponent, WarehouseComponent} from './components/planet';
+// Planet specific components
+import {ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
+        PlanetSpecialComponent, PlanetTimeComponent, PlanetWeatherComponent} from './components/explore-planet';
+// Guards
+import {GameGuard, PlanetGuard} from './guards';
 
 const appRoutes: Routes = [
     { 
@@ -8,7 +22,7 @@ const appRoutes: Routes = [
     },
     { 
       path: 'new', 
-      component:  MainMenuComponent,
+      component:  NewGameComponent,
       children: [
         {
           path: 'select-difficulty',
@@ -24,7 +38,7 @@ const appRoutes: Routes = [
         },
         {
           path: 'competitors',
-          component: CompetitorsComponent
+          component: CompetitorsMenuComponent
         },
         {
           path: 'select-ship',
@@ -33,7 +47,7 @@ const appRoutes: Routes = [
       ]
     },
     {
-      path: 'game'
+      path: 'game',
       component: GameComponent,
       canActivate: [GameGuard],
       data: { title: 'newgame' },
@@ -117,7 +131,7 @@ const appRoutes: Routes = [
               },
               {
                 path: 'explore',
-                component: ExploreComponent,
+                component: ExplorePlanetComponent,
                 children: [
                   {
                     path: 'special',

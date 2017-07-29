@@ -1,4 +1,4 @@
-<div *ngIf="state === states.DifficultyMenu">
+<div>
   <div style="display: inline-block; width: 49%;">
     <gaz-menu-item *ngFor="let item of difficultyLevels" label="{{item}}" (onClick)="changeDifficulty()"></gaz-menu-item>
   </div>
@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div *ngIf="state === states.NumberOfPlayersMenu">
+<div>
   <div style="display: inline-block; width: 49%;">
     <gaz-menu-item *ngFor="let item of players" label="{{item}} Player{{item === 'One' ? '' : 's'}}" (onClick)="changeNumberOfPlayers()"></gaz-menu-item>
   </div>
@@ -33,7 +33,7 @@
   </div>
 </div>
 
-<div *ngIf="state === states.PlanetsMenu">
+<div>
   <ul>
     <li *ngFor="let planet of selectedPlanets" (click)="showPlanetModal(planet)">{{planet.name}}</li>
   </ul>
@@ -49,7 +49,7 @@
   </div>
 </div>
 
-<div *ngIf="state === states.CompetitorsMenu">
+<div>
   <ul>
     <li *ngFor="let company of companies">
       <p>{{company.name}}</p>
@@ -59,7 +59,7 @@
   <button (click)="selectShip()">Continue</button>
 </div>
 
-<div *ngIf="state === states.ShipMenu">
+<div>
 
   <div *ngIf="!player.companyName">
     <h2>Player 1</h2>
@@ -73,7 +73,7 @@
   </ul>
 </div>
 
-<div *ngIf="state === states.ShipDetails">
+<div>
   {{player.ship}}
   <p>{{player.ship.summary}}</p>
   <p>Do you wish to purchase this ship?</p>

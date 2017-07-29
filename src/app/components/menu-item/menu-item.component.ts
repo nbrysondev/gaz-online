@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'gaz-menu-item',
@@ -8,15 +9,17 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class MenuItemComponent implements OnInit {
 
   @Input() label: string;
+  @Input() link: string;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   public itemClicked(event) {
     this.onClick.emit();
+    this.router.navigate(['/'+this.link]);
   }
 
 }
