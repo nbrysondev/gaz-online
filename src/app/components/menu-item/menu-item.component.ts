@@ -10,16 +10,21 @@ export class MenuItemComponent implements OnInit {
 
   @Input() label: string;
   @Input() link: string;
+  @Input() colour: string;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
 
   public itemClicked(event) {
     this.onClick.emit();
-    this.router.navigate(['/'+this.link]);
+    if (this.link) {
+      this.router.navigate(['/'+this.link]);
+    }
   }
 
 }

@@ -1,0 +1,55 @@
+.row {
+  background: url('../../../../assets/images/backgrounds/starfield.png');
+  border-radius: 15px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.planet {
+  height :100px;
+  width: 100px;
+  background-size: cover;
+}
+
+.planetWrapper {
+  color: #fff;
+  text-align: center;
+  float:left;
+  font-weight: bold;
+  position: relative;
+}
+
+.planet0 {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.planet1 {
+  margin-top: 60px;
+  margin-left: 200px;
+}
+
+.planet2 {
+  margin-top: 30px;
+  margin-left: 500px;
+}
+
+.planet3 {
+  margin-top: 100px;
+  margin-left: 300px;
+}
+
+.planet4 {
+  margin-top: 100px;
+  margin-left: 70px;
+}
+
+.planet5 {
+  margin-top: 100px;
+  margin-left: 300px;
+}
+
+.planet6 {
+  margin-top: 100px;
+  margin-left: 500px;
+}

@@ -1,3 +1,9 @@
-<p>
-  competitors-menu works!
-</p>
+<div>
+  <ul>
+    <li *ngFor="let company of companies">
+      <p>{{company.name}}</p>
+      <p>{{company.personality}}</p>
+    </li>
+  </ul>
+  <button (click)="selectShip()">Continue</button>
+</div>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
+import { ClarityModule } from "clarity-angular";
 import { FormsModule } from '@angular/forms';
 import { routing }        from './app.routing';
 import { GlobalErrorHandler } from './exceptions/global-error-handler';
@@ -22,6 +23,9 @@ import {ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
         PlanetSpecialComponent, PlanetTimeComponent, PlanetWeatherComponent} from './components/explore-planet';
 // Guards
 import {GameGuard, PlanetGuard} from './guards';
+
+// Services
+import {ContentService, SoundService} from './services';
 
 @NgModule({
   declarations: [
@@ -63,10 +67,13 @@ import {GameGuard, PlanetGuard} from './guards';
   ],
   imports: [
     BrowserModule,
+    ClarityModule.forRoot(),
     FormsModule,
     routing
   ],
   providers: [
+    ContentService,
+    SoundService,
     GameGuard, 
     PlanetGuard,
     {

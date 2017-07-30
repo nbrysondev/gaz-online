@@ -1,3 +1,21 @@
-<p>
-  ship-menu works!
-</p>
+<div>
+  <div *ngIf="!player.companyName">
+    <h2>Player 1</h2>
+    <p>Please name your company: </p>
+    <input type="text" [(ngModel)]="companyName" />
+    <button (click)="setCompanyName()">OK</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let ship of ships" (click)="showShipDetails(ship)">{{ship.shipName}}</li>
+  </ul>
+</div>
+
+
+<div>
+  {{player.ship}}
+  <p>{{player.ship.summary}}</p>
+  <p>Do you wish to purchase this ship?</p>
+  <button (click)="nextStep()">Yes</button>
+  <button (click)="state = states.ShipMenu">No</button>
+</div>

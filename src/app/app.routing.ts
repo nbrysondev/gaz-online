@@ -24,6 +24,7 @@ const appRoutes: Routes = [
       path: 'new', 
       component:  NewGameComponent,
       children: [
+        { path: '', redirectTo: 'select-difficulty', pathMatch: 'full' },
         {
           path: 'select-difficulty',
           component: DifficultyMenuComponent

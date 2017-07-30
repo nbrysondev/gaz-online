@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentService, SoundService } from '../../../services';
 
 @Component({
   selector: 'gaz-players-menu',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayersMenuComponent implements OnInit {
 
-  constructor() { }
+  public players = ["One", "Two", "Three", "Four", "Five", "Six"];
+  public heading: string;
+  public blurb: string;
+
+  constructor(
+    private contentService: ContentService,
+    private soundService: SoundService
+  ) { 
+    this.heading = contentService.get("playerMenu.title");
+    this.blurb = contentService.get("playerMenu.blurb");
+  }
 
   ngOnInit() {
+    this.soundService.play("main-menu-select.ogg");
   }
 
 }

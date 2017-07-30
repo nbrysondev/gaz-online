@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentService } from '../../../services';
 
 @Component({
   selector: 'gaz-main-menu',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor() { }
+  public title: string;
+  public heading: string;
+  public blurb: string;
+
+  constructor(
+    private contentService: ContentService
+  ) { 
+    this.title = contentService.get("title");
+    this.heading = contentService.get("mainMenu.title");
+    this.blurb = contentService.get("mainMenu.blurb");
+  }
 
   ngOnInit() {
   }

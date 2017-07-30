@@ -1,3 +1,13 @@
-<p>
-  players-menu works!
-</p>
+<div class="row">
+  <div class="col-md-4 menu">
+    <gaz-menu-item *ngFor="let item of players" label="{{item}} Player{{item === 'One' ? '' : 's'}}" colour="blue" link="new/select-planets" ></gaz-menu-item>
+  </div>
+  <div class="col-md-8 menu">
+    <div class="blurb">
+      <h1>
+        {{heading}}
+      </h1>
+      <div [innerHTML]="blurb"></div>
+    </div>
+  </div>
+</div>
