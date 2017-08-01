@@ -13,6 +13,22 @@ button.blue {
   background-color: #289ee5;  
 }
 
+button.blue:hover {
+  background-color: #0b6ed1;
+}
+
 button.gold {
   background-color: #e59c26;
+}
+
+button.gold:hover {
+  background-color: #d0700b;
+}
+
+button.grey {
+  background-color: #82828f;
+}
+
+button.grey:hover {
+  background-color: #5a5c6a;
 }

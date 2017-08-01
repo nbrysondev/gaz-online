@@ -1,21 +1,49 @@
-<div>
-  <div *ngIf="!player.companyName">
-    <h2>Player 1</h2>
-    <p>Please name your company: </p>
-    <input type="text" [(ngModel)]="companyName" />
-    <button (click)="setCompanyName()">OK</button>
+<div class="wrapper" *ngIf="!selectedShip">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Your Competitors</h1>
+      <h2>Click on the spaceship you wish to purchase:</h2>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-md-3"  *ngFor="let ship of ships">
+      <div class="shipContainer">
+        <img class="shipImage" (click)="showShipDetails(ship)" src="assets/images/ships/{{ship.slug}}/large.png" />
+      </div>
+    </div>
+  </div>
+</div>
 
-  <ul>
-    <li *ngFor="let ship of ships" (click)="showShipDetails(ship)">{{ship.shipName}}</li>
-  </ul>
+<div class="wrapper" *ngIf="selectedShip">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>{{selectedShip.name}}</h1>
+      <div class="shipImageWrapper">
+        <img class="shipImage" src="assets/images/ships/{{selectedShip.slug}}/large.png" />
+      </div>
+      <div class="shipBlurb">
+        {{selectedShip.summary}}
+        <p>Do you wish to purchase this ship?</p>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <gaz-menu-item  colour="grey" (onClick)="selectShip()" link="game" label="Yes" ></gaz-menu-item>
+      <gaz-menu-item  colour="grey" (onClick)="unselectShip()" label="No" ></gaz-menu-item>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
 </div>
 
 
-<div>
+<!--<div>
   {{player.ship}}
   <p>{{player.ship.summary}}</p>
   <p>Do you wish to purchase this ship?</p>
   <button (click)="nextStep()">Yes</button>
   <button (click)="state = states.ShipMenu">No</button>
-</div>
+</div>-->

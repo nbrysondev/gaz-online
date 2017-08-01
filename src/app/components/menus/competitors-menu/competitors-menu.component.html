@@ -1,9 +1,23 @@
-<div>
-  <ul>
-    <li *ngFor="let company of companies">
-      <p>{{company.name}}</p>
-      <p>{{company.personality}}</p>
-    </li>
-  </ul>
-  <button (click)="selectShip()">Continue</button>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Your Competitors</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"  *ngFor="let competitor of competitors">
+      <div class="competitorContainer">
+        <h2>{{competitor.name}}</h2>
+        <h3>{{competitor.personality}}</h3>
+        <img class="competitorImage" src="assets/images/companies/{{competitor.slug}}/large.png" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <gaz-menu-item label="Continue" colour="grey" link="new/select-ship" ></gaz-menu-item>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
 </div>

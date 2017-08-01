@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ship } from '../../../models';
+import { Ships } from '../../../../assets/data';
 
 @Component({
   selector: 'gaz-ship-menu',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShipMenuComponent implements OnInit {
 
-  constructor() { }
+  public ships: Array<Ship> = [];
+  public selectedShip: Ship;
+
+  constructor() { 
+    this.ships = Ships;
+  }
 
   ngOnInit() {
+  }
+
+  public showShipDetails(ship: Ship) {
+    this.selectedShip = ship;
+  }
+
+  public selectShip() {
+    // do a thing
+  }
+
+  public unselectShip() {
+    this.selectedShip = null;
   }
 
 }

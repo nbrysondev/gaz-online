@@ -44,19 +44,23 @@ export class PlanetsMenuComponent implements OnInit {
   }
 
   public replacePlanet(selectedPlanet: Planet) {
-
+    
+    // Add the planet the player has chosen to the selected planets array
     this.selectedPlanets = this.selectedPlanets.map(
-      planet => { 
-        if (planet === this.planetToReplace) {
-          return selectedPlanet;
-        } else {
-          return planet;
-        }
-      }
+      planet => planet === this.planetToReplace ? selectedPlanet : planet 
     );
 
+    // Add the planet the player is replacing to the unselected planets array
+    this.unselectedPlanets = this.unselectedPlanets.map(
+      planet => planet === selectedPlanet ? this.planetToReplace : planet
+    );
+
+    this.soundService.play("main-menu-select.ogg");
     this.planetToReplace = null;
   }
-
+  
+  public setPlanets() {
+    // this is where we apply settings to the store
+  }
 
 }

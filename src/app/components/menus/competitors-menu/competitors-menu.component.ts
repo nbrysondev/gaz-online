@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Company } from '../../../models';
+import { Companies } from '../../../../assets/data';
 
 @Component({
   selector: 'gaz-competitors-menu',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompetitorsMenuComponent implements OnInit {
 
-  constructor() { }
+  public competitors: Array<Company> = [];
+
+  constructor() { 
+    this.competitors = Companies;
+  }
 
   ngOnInit() {
   }

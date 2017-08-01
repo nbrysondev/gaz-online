@@ -2,20 +2,36 @@
   <div class="col-md-12">
     <div class="planetWrapper planet{{i}}" *ngFor="let planet of selectedPlanets; let i = index">
       {{planet.name}}
-      <div class="planet" [ngStyle]="{'background-image': 'url(assets/images/planets/' + planet.slug + '/large.png)' }"  (click)="showPlanetModal(planet)">
+      <div class="planet" [ngStyle]="{'background-image': 'url(assets/images/planets/' + planet.slug + '/large.png)' }" (click)="showPlanetModal(planet)">
       </div>
     </div>
   </div>
-  <div class="col-md-12">
-    <gaz-menu-item colour="blue" (onClick)="setPlanets()" link="new/competitors" label="Continue" ></gaz-menu-item>
+  <div class="col-md-12 buttons">
+    <gaz-menu-item  colour="blue" (onClick)="setPlanets()" link="new/competitors" label="Continue" ></gaz-menu-item>
     <gaz-menu-item  colour="blue" (onClick)="setRandomPlanets()" label="Randomize Planets" ></gaz-menu-item>
   </div>
 
-  <div *ngIf="planetToReplace">
-    <h2>Click on a planet to replace {{planetToReplace.name}}</h2>
-    <ul>
-      <li>{{planetToReplace.name}}</li>
-      <li *ngFor="let planet of unselectedPlanets" (click)="replacePlanet(planet)">{{planet.name}}</li>
-    </ul>
+  <div class="planetModal" *ngIf="planetToReplace">
+    <div class="innerModal">
+      <h2>Click on a planet to replace {{planetToReplace.name}}</h2>
+      <div class="planetList row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-4"  (click)="replacePlanet(planetToReplace)">
+                <div class="planet" [ngStyle]="{'background-image': 'url(assets/images/planets/' + planetToReplace.slug + '/large.png)' }"></div>
+              </div>
+              <div class="planetBlurb col-md-8">{{planetToReplace.summary}}</div>
+            </div>
+          </div>
+          <div class="col-md-6" *ngFor="let planet of unselectedPlanets">
+            <div class="row">
+              <div class="col-md-4"  (click)="replacePlanet(planet)">
+                <div class="planet" [ngStyle]="{'background-image': 'url(assets/images/planets/' + planet.slug + '/large.png)' }"></div>
+              </div>
+              <div class="planetBlurb col-md-8">{{planet.summary}}</div>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
 </div>

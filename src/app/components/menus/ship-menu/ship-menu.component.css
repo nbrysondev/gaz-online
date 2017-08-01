@@ -1,0 +1,53 @@
+h1, h2 {
+  color: #fff;
+  text-align: center;
+  margin-top: 0px;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.3em;
+  line-height: 2em;
+}
+
+.wrapper {
+  border: 10px #353558 solid;
+  background-color: #000030;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.col-md-3 {
+  margin-top: 30px;
+}
+
+.shipContainer {
+  background-color: #9494a1;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.shipContainer:hover {
+  background-color: #666876;
+}
+
+.shipImage {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.shipImageWrapper {
+  background-color: #565670;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.shipBlurb {
+  color: #fff;
+}

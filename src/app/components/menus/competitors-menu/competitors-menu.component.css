@@ -1,0 +1,47 @@
+h1, h2, h3 {
+  color: #fff;
+  text-align: center;
+  margin-top: 0px;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.3em;
+  line-height: 2em;
+}
+
+h3 {
+  font-size: 1em;
+  line-height: 1em;
+}
+
+.wrapper {
+  border: 10px #353558 solid;
+  background-color: #000030;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.col-md-4 {
+  margin-top: 30px;
+}
+
+.competitorContainer {
+  background-color: #353558;
+  padding: 10px;
+}
+
+.competitorImage {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  margin-top: 10px;
+}
+
+:host >>> button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
