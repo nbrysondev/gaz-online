@@ -8,14 +8,6 @@ C:\Program Files (x86)\Gazillionaire III v3.04
     // Summary page 
     // Planet screen
 
-// Difficulty settings
-Tut: ship: 100,000, startcash: 50,000, commodmin: x1
-Novice: ship:110,000, startcash: 25,000, commodmin: x1
-Beginner: ship:120,000, startcash: 0, commodmin: x2
-Intermediate: ship:130,000, startcash: 0, commodmin: x3
-Expert: ship:140,000, startcash: 0, commodmin: x4
-Master: ship:150,000, startcash: 0, commodmin: x5
-
 // Statuses
 Merchant, Business Person, Trader, Entrepreneur
 -238,000 (Unprosperous)
@@ -26,10 +18,6 @@ Merchant, Business Person, Trader, Entrepreneur
 // Game State
 Week number
 Difficulty level
-
-// Other values
-Victory amount - 5,000,000
-
 // On select event
     ==almost game over==
     If you leave the planet now you will go bankrupt and lose the game! You cannot owe more than 100,000 kubars to the Traders' Union.

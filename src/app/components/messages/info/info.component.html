@@ -1,3 +1,12 @@
-<img src="" />
-<p>{{blurb}}</p>
-<button>OK</button>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <div class="blurb">
+        {{blurb}}
+      </div>
+      <gaz-menu-item colour="grey" (onClick)="nextEvent()" label="OK" ></gaz-menu-item>
+    </div>
+  </div>
+</div>

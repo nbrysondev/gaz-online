@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoComponent implements OnInit {
 
+  public blurb: string;
+  public img: string;
+
   constructor() { }
 
   ngOnInit() {

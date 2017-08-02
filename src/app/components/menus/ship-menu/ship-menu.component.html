@@ -1,20 +1,30 @@
 <div class="wrapper" *ngIf="!selectedShip">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Your Competitors</h1>
-      <h2>Click on the spaceship you wish to purchase:</h2>
+  <div class="overlay" [ngClass]="{ visible: !nameChosen }">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>{{companyName}}</h1>
+        <h2>Click on the spaceship you wish to purchase:</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"  *ngFor="let ship of ships">
+        <div class="shipContainer">
+          <img class="shipImage" (click)="showShipDetails(ship)" src="assets/images/ships/{{ship.slug}}/large.png" />
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-3"  *ngFor="let ship of ships">
-      <div class="shipContainer">
-        <img class="shipImage" (click)="showShipDetails(ship)" src="assets/images/ships/{{ship.slug}}/large.png" />
-      </div>
+  <div *ngIf="!nameChosen" class="nameModal">
+    <div class="nameForm">
+        <h3>Player 1</h3>
+        <p>Please name your company:</p>
+        <input type="text" onClick="this.select();" [(ngModel)]="companyName" #ctrl="ngModel"  /><br />
+        <button (click)="setName()">OK</button>
     </div>
   </div>
 </div>
 
-<div class="wrapper" *ngIf="selectedShip">
+<div class="wrapper shipDetails" *ngIf="selectedShip">
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
