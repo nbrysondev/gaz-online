@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ship } from '../../../models';
-import { Ships } from '../../../../assets/data';
-import { SoundService } from '../../../services';
+import { SoundService, ContentService } from '../../../services';
 
 @Component({
   selector: 'gaz-ship-menu',
@@ -15,8 +14,8 @@ export class ShipMenuComponent implements OnInit {
   public companyName: string;
   public nameChosen: boolean;
 
-  constructor(private soundService: SoundService) { 
-    this.ships = Ships;
+  constructor(private soundService: SoundService, private contentService: ContentService) { 
+    this.ships = this.contentService.getShips();
     this.companyName = "Player 1 Inc.";
     this.nameChosen = false;
   }

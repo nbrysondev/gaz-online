@@ -5,9 +5,9 @@
   <div class="col-md-8 menu">
     <div class="blurb">
       <h1>
-        {{heading}}
+        {{'content.difficultyMenu.title' | content}}
       </h1>
-      <div [innerHTML]="blurb"></div>
+      <div [innerHTML]="'content.difficultyMenu.blurb' | content"></div>
     </div>
   </div>
 </div>

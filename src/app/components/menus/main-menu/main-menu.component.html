@@ -3,7 +3,7 @@
     <gaz-menu-item label="Start New Game" colour="blue" link="new"></gaz-menu-item>
     <gaz-menu-item label="Load Saved Game" colour="blue" (onClick)="changeMenuState(states.NewGame)"></gaz-menu-item>
     <gaz-menu-item label="Load Group Game" colour="blue" (onClick)="changeMenuState(states.NewGame)"></gaz-menu-item>
-    <gaz-menu-item label="About {{title}}" colour="blue" (onClick)="changeMenuState(states.NewGame)"></gaz-menu-item>
+    <gaz-menu-item label="About {{'title' | content}}" colour="blue" (onClick)="changeMenuState(states.NewGame)"></gaz-menu-item>
     <gaz-menu-item label="About LavaMind" colour="blue" (onClick)="changeMenuState(states.NewGame)"></gaz-menu-item>
     <gaz-menu-item label="Sound On" colour="gold" (onClick)="toggleSound()"></gaz-menu-item>
     <gaz-menu-item label="Quit" colour="gold" (onClick)="toggleSound()"></gaz-menu-item>
@@ -11,9 +11,9 @@
   <div class="col-md-8">
     <div class="blurb">
       <h1>
-        {{heading}}
+        {{'content.mainMenu.title' | content}}
       </h1>
-      <div [innerHTML]="blurb"></div>
+      <div [innerHTML]="'content.mainMenu.blurb' | content"></div>
     </div>
   </div>
 </div>

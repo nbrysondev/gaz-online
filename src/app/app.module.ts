@@ -27,6 +27,9 @@ import {GameGuard, PlanetGuard} from './guards';
 // Services
 import {ContentService, SoundService} from './services';
 
+// Pipes
+import { ContentPipe, ContentFilterPipe } from './pipes';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +66,9 @@ import {ContentService, SoundService} from './services';
     PlanetNewsComponent,
     PlanetTimeComponent,
     PlanetAboutComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    ContentPipe,
+    ContentFilterPipe
   ],
   imports: [
     BrowserModule,

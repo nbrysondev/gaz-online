@@ -33,7 +33,7 @@
         <img class="shipImage" src="assets/images/ships/{{selectedShip.slug}}/large.png" />
       </div>
       <div class="shipBlurb">
-        {{selectedShip.summary}}
+        {{selectedShip.summary | contentFilter}}
         <p>Do you wish to purchase this ship?</p>
       </div>
     </div>

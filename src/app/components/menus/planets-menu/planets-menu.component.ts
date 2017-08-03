@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Planet } from '../../../models';
-import { Planets } from '../../../../assets/data';
-import { SoundService } from '../../../services';
+import { SoundService, ContentService } from '../../../services';
 
 @Component({
   selector: 'gaz-planets-menu',
@@ -17,7 +16,7 @@ export class PlanetsMenuComponent implements OnInit {
 
   private maxPlanets = 7;
 
-  constructor(private soundService: SoundService) { }
+  constructor(private soundService: SoundService, private contentService: ContentService) { }
 
   ngOnInit() {
     this.setRandomPlanets();
@@ -26,7 +25,7 @@ export class PlanetsMenuComponent implements OnInit {
   public setRandomPlanets() {
 
     this.selectedPlanets = [], this.unselectedPlanets = [];
-    let tmp = Planets.slice(0);
+    let tmp = this.contentService.getPlanets().slice(0);
 
     for (let i = 0; i < this.maxPlanets; i++) {
       var index = Math.floor(Math.random() * tmp.length);

@@ -16,8 +16,8 @@ export class PlayersMenuComponent implements OnInit {
     private contentService: ContentService,
     private soundService: SoundService
   ) { 
-    this.heading = contentService.get("playerMenu.title");
-    this.blurb = contentService.get("playerMenu.blurb");
+    this.heading = contentService.get("content.playerMenu.title");
+    this.blurb = contentService.get("content.playerMenu.blurb");
   }
 
   ngOnInit() {
