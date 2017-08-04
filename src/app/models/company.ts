@@ -1,21 +1,30 @@
 /**
-* Company
+* CompanyContent
 *
-* @interface Company
-* @param id             {number} optional
+* @interface CompanyContent
 * @param slug           {string}
 * @param name           {string}
 * @param personality    {string}
-* @param netWorth       {number} optional
-* @param marketStrength {number} optional
-* @param shipId         {number} optional
 */
-export interface Company {
-    id?: number;
+export interface CompanyContent {
     slug: string;
     name: string;
     personality: string;
-    marketStrength?: number;
-    netWorth?: number;
-    shipId?: number;
+}
+/**
+* Company
+*
+* @interface Company
+* @extends CompanyContent
+* @param marketStrength {number} 
+* @param shipId         {number} 
+* @param planetId       {number} 
+* @param player         {number} 
+*/
+export interface Company extends CompanyContent {
+    marketStrength: number;
+    netWorth: number;
+    shipId: number;
+    planetId: number;
+    player: number;
 }

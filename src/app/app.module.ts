@@ -25,7 +25,7 @@ import {ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
 import {GameGuard, PlanetGuard} from './guards';
 
 // Services
-import {ContentService, SoundService} from './services';
+import { ContentService, SoundService, PlanetService, CommodityService, ShipService, CompanyService, GameSettingsService } from './services';
 
 // Pipes
 import { ContentPipe, ContentFilterPipe } from './pipes';
@@ -77,8 +77,13 @@ import { ContentPipe, ContentFilterPipe } from './pipes';
     routing
   ],
   providers: [
+    GameSettingsService,
     ContentService,
     SoundService,
+    CommodityService,
+    ShipService,
+    PlanetService,
+    CompanyService,
     GameGuard, 
     PlanetGuard,
     {

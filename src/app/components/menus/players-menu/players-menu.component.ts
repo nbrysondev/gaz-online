@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentService, SoundService } from '../../../services';
+import { SoundService, GameSettingsService } from '../../../services';
 
 @Component({
   selector: 'gaz-players-menu',
@@ -13,15 +13,16 @@ export class PlayersMenuComponent implements OnInit {
   public blurb: string;
 
   constructor(
-    private contentService: ContentService,
-    private soundService: SoundService
-  ) { 
-    this.heading = contentService.get("content.playerMenu.title");
-    this.blurb = contentService.get("content.playerMenu.blurb");
-  }
+    private soundService: SoundService,
+    private gameSettings: GameSettingsService
+  ) { }
 
   ngOnInit() {
     this.soundService.play("main-menu-select.ogg");
+  }
+
+  public setPlayers(players: string) {
+    this.gameSettings.set("numOfPlayers", players);
   }
 
 }

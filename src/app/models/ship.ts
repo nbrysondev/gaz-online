@@ -1,8 +1,7 @@
 /**
-* Ship
+* ShipContent
 *
-* @interface Ship
-* @param id             {number} optional
+* @interface ShipContent
 * @param slug           {string}
 * @param name           {string}
 * @param summary        {string}
@@ -13,8 +12,7 @@
 * @param crew           {number}
 * @param fuel           {number}
 */
-export interface Ship {
-    id?: number;
+export interface ShipContent {
     slug: string;
     name: string;
     summary: string;
@@ -25,3 +23,10 @@ export interface Ship {
     crew: number;
     fuel: number;
 }
+/**
+* Ship
+*
+* @interface Ship
+* @extends ShipContent
+*/
+export interface Ship extends ShipContent { }

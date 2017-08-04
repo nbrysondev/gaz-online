@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Planet } from '../../../models';
-import { SoundService, ContentService } from '../../../services';
+import { PlanetContent, Planet } from '../../../models';
+import { SoundService, ContentService, PlanetService } from '../../../services';
 
 @Component({
   selector: 'gaz-planets-menu',
@@ -9,45 +9,50 @@ import { SoundService, ContentService } from '../../../services';
 })
 export class PlanetsMenuComponent implements OnInit {
 
-  public selectedPlanets = [];
-  public unselectedPlanets = [];
+  public selectedPlanets: Array<PlanetContent>;
+  public unselectedPlanets: Array<PlanetContent>;
+  
   // The planet the user wishes to change
-  public planetToReplace: Planet;
+  public planetToReplace: PlanetContent;
 
   private maxPlanets = 7;
 
-  constructor(private soundService: SoundService, private contentService: ContentService) { }
+  constructor(
+    private soundService: SoundService, 
+    private contentService: ContentService,
+    private planetService: PlanetService) { }
 
   ngOnInit() {
-    this.setRandomPlanets();
+    if (!this.planetService.hasPlanets()) {
+      this.setRandomPlanets();
+    } else {
+      this.selectedPlanets = this.planetService.getAll();
+    }
   }
 
   public setRandomPlanets() {
 
-    this.selectedPlanets = [], this.unselectedPlanets = [];
+    this.unselectedPlanets = [];
+    this.planetService.clear();
+
     let tmp = this.contentService.getPlanets().slice(0);
 
     for (let i = 0; i < this.maxPlanets; i++) {
       var index = Math.floor(Math.random() * tmp.length);
       var removed = tmp.splice(index, 1);
-      this.selectedPlanets.push(removed[0]);
+      this.planetService.add(removed[0]);
     }
 
     this.unselectedPlanets = tmp;
-
+    this.selectedPlanets = this.planetService.getAll();
     this.soundService.play("main-menu-select.ogg");
-  }
-
-  public showPlanetModal(planet: Planet) {
-    this.planetToReplace = planet;
   }
 
   public replacePlanet(selectedPlanet: Planet) {
     
     // Add the planet the player has chosen to the selected planets array
-    this.selectedPlanets = this.selectedPlanets.map(
-      planet => planet === this.planetToReplace ? selectedPlanet : planet 
-    );
+    this.planetService.replace(this.planetToReplace, selectedPlanet);
+    this.selectedPlanets = this.planetService.getAll();
 
     // Add the planet the player is replacing to the unselected planets array
     this.unselectedPlanets = this.unselectedPlanets.map(
@@ -58,8 +63,7 @@ export class PlanetsMenuComponent implements OnInit {
     this.planetToReplace = null;
   }
   
-  public setPlanets() {
-    // this is where we apply settings to the store
+  public showPlanetModal(planet: Planet) {
+    this.planetToReplace = planet;
   }
-
 }

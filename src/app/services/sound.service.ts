@@ -5,14 +5,19 @@ export class SoundService {
 
   private dir = "../../../assets/sound/";
   private playing: HTMLAudioElement;
+  private enabled: boolean;
 
-  constructor() { }
+  constructor() { 
+    this.enabled = true;
+  }
 
   public play(filename: string) {
-    this.playing  = new Audio();
-    this.playing.src = this.dir+filename;
-    this.playing.load();
-    this.playing.play();
+    if (this.enabled) {
+      this.playing  = new Audio();
+      this.playing.src = this.dir+filename;
+      this.playing.load();
+      this.playing.play();
+    }
   }
 
   public stop() {
@@ -20,5 +25,13 @@ export class SoundService {
       this.playing.pause();
       this.playing = null;
     }
+  }
+
+  public isEnabled() {
+    return this.enabled;
+  }
+
+  public toggleSound() {
+    this.enabled = !this.enabled;
   }
 }

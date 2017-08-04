@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-4 menu">
-    <gaz-menu-item *ngFor="let item of difficultyLevels" colour="blue" link="new/select-players" label="{{item}}" ></gaz-menu-item>
+    <gaz-menu-item *ngFor="let item of difficultyLevels" colour="blue" (click)="setDifficulty(item)" link="new/select-players" label="{{item}}" ></gaz-menu-item>
   </div>
   <div class="col-md-8 menu">
     <div class="blurb">

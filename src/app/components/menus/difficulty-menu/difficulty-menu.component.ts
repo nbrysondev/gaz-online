@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SoundService } from '../../../services';
+import { SoundService, GameSettingsService } from '../../../services';
 
 @Component({
   selector: 'gaz-difficulty-menu',
@@ -10,10 +10,17 @@ export class DifficultyMenuComponent implements OnInit {
 
   public difficultyLevels = ["Tutorial", "Novice", "Beginner", "Intermediate", "Expert", "Master"];
 
-  constructor(private soundService: SoundService) { }
+  constructor(
+    private soundService: SoundService,
+    private gameSettings: GameSettingsService
+  ) { }
 
   ngOnInit() {
     this.soundService.play("main-menu-select.ogg");
+  }
+
+  public setDifficulty(difficulty: string) {
+    this.gameSettings.set("difficulty", difficulty);
   }
 
 }
