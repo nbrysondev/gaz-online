@@ -13,6 +13,25 @@ export abstract class EntityService {
   protected abstract create(entityContent: any);
 
   /**
+  *
+  * @function hasEntities
+  * @return {boolean}
+  */
+  public hasEntities(): boolean {
+    return this.entities.length > 0;
+  }
+
+  /**
+  * Gets the total number of entities stored in the service
+  *
+  * @function number
+  * @return {number}
+  */
+  public count(): number {
+    return this.entities.length;
+  }
+
+  /**
   * Return selected entity
   *
   * @function get

@@ -1,8 +1,13 @@
 <div class="row">
-  <div class="col-md-12">
-    <div class="planetWrapper planet{{i}}" *ngFor="let planet of selectedPlanets; let i = index">
+  <div class="col-md-12 planetContainer">
+    <div class="planetWrapper planet{{i}}" 
+        *ngFor="let planet of selectedPlanets; let i = index" 
+        [ngStyle]="{ 'top': planet.position.y + 'px', 'left': planet.position.x + 'px' }">
       {{planet.name}}
-      <div class="planet" [ngStyle]="{'background-image': 'url(assets/images/planets/' + planet.slug + '/large.png)' }" (click)="showPlanetModal(planet)">
+      <div class="planet position" 
+          [ngStyle]="
+            { 'background-image': 'url(assets/images/planets/' + planet.slug + '/large.png)' }" 
+          (click)="showPlanetModal(planet)">
       </div>
     </div>
   </div>
