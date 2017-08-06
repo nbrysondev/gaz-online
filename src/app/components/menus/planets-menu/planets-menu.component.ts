@@ -9,10 +9,10 @@ import { SoundService, ContentService, PlanetService } from '../../../services';
 })
 export class PlanetsMenuComponent implements OnInit {
 
-  public selectedPlanets: Array<PlanetContent>;
+  public selectedPlanets: Array<Planet>;
   public unselectedPlanets: Array<PlanetContent>;
   // The planet the user wishes to change
-  public planetToReplace: PlanetContent;
+  public planetToReplace: Planet;
 
   constructor(
     private soundService: SoundService, 

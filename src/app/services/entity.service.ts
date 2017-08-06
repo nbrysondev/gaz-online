@@ -81,9 +81,8 @@ export abstract class EntityService {
   * @function replace
   */
   public replace(oldEntity: GameEntity, newEntity: GameEntity) {
-    // Add the planet the player has chosen to the selected planets array
     this.entities = this.entities.map(
-      entity => entity === oldEntity ? newEntity : entity 
+      entity => entity === oldEntity ? this.create(newEntity) : entity 
     );
   }
 

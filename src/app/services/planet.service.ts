@@ -28,6 +28,18 @@ export class PlanetService extends EntityService {
       { x:900, y:500 }
     ];
   }
+  
+  /**
+  * Replaces an entity with another entity
+  *
+  * @function replace
+  */
+  public replace(oldPlanet: Planet, newPlanet: PlanetContent) {
+    // Add the planet the player has chosen to the selected planets array
+    this.entities = this.entities.map(
+      entity => entity === oldPlanet ? this.create(newPlanet, oldPlanet.position) : entity 
+    );
+  }
 
   /**
   * Creates a new Planet from a PlanetContent instance.
@@ -37,13 +49,16 @@ export class PlanetService extends EntityService {
   * @param company {PlanetContent}
   * @return {Planet}
   */
-  protected create(planet: PlanetContent): Planet {
-    let position = null;
-    if (this.planetPositions.hasOwnProperty(this.entities.length)) {
-      position = this.planetPositions[this.entities.length];
-    } else {
-      throw new Error("Unable to set planet position - index: " + this.entities.length);
+  protected create(planet: PlanetContent, position?: Position): Planet {
+
+    if (!position) {
+      if (this.planetPositions.hasOwnProperty(this.entities.length)) {
+        position = this.planetPositions[this.entities.length];
+      } else {
+        throw new Error("Unable to set planet position - index: " + this.entities.length);
+      }
     }
+
     return Object.assign(
       planet,
       {
