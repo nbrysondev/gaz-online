@@ -4,7 +4,7 @@ import {MainMenuComponent,CompetitorsMenuComponent, DifficultyMenuComponent, Pla
         PlayersMenuComponent, ShipMenuComponent} from './components/menus';
 // Core component
 import {GameComponent, DepartComponent, GraphsComponent, HelpComponent, HyperspaceComponent,
-       NewGameComponent, NewWeekComponent} from './components';
+       NewGameComponent, NewWeekComponent, IntroductionComponent} from './components';
 // Planet landing components
 import {PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, InsuranceComponent,
         LenderLoanComponent, LoanComponent, MarketplaceComponent, PassengersComponent, StockMarketComponent,
@@ -53,6 +53,11 @@ const appRoutes: Routes = [
       canActivate: [GameGuard],
       data: { title: 'newgame' },
       children: [
+          { path: '', redirectTo: 'introduction', pathMatch: 'full' },
+          { 
+            path: 'introduction', 
+            component: IntroductionComponent
+          },          
           { 
             path: 'new-week', 
             component: NewWeekComponent

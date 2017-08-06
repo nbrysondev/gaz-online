@@ -1,16 +1,16 @@
+import {CommodityInstance, GameEntity} from '.';
 /**
 * PlanetContent
 *
 * @interface PlanetContent
+* @extends GameEntity
 * @param name     {string}
-* @param slug     {string}
 * @param nickname {string}
 * @param summary  {string}
 * @param history  {Array<string>}
 */
-export interface PlanetContent {
+export interface PlanetContent extends GameEntity  {
     name: string;
-    slug: string;
     nickname: string;
     summary: string;
     history: Array<string>;
@@ -20,6 +20,8 @@ export interface PlanetContent {
 *
 * @interface Planet
 * @extends PlanetContent
+* @param commodities {Array<CommodityInstance>}
 */
 export interface Planet extends PlanetContent {
+    commodities: Array<CommodityInstance>;
 }

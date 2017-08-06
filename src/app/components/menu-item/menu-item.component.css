@@ -9,11 +9,16 @@ button {
   color: #fff;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 button.blue {
   background-color: #289ee5;  
 }
 
-button.blue:hover {
+button.blue:hover:enabled {
   background-color: #0b6ed1;
 }
 
@@ -21,7 +26,7 @@ button.gold {
   background-color: #e59c26;
 }
 
-button.gold:hover {
+button.gold:hover:enabled {
   background-color: #d0700b;
 }
 
@@ -29,6 +34,6 @@ button.grey {
   background-color: #82828f;
 }
 
-button.grey:hover {
+button.grey:hover:enabled {
   background-color: #5a5c6a;
 }

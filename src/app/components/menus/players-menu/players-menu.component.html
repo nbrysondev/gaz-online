@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-md-4 menu">
-    <gaz-menu-item *ngFor="let item of players" (click)="setPlayers(item)" label="{{item}} Player{{item === 'One' ? '' : 's'}}" colour="blue" link="new/select-planets" ></gaz-menu-item>
+    <gaz-menu-item (onClick)="setPlayers(1)" label="One Player" colour="blue" link="new/select-planets" ></gaz-menu-item>
+    <gaz-menu-item (onClick)="setPlayers(2)" label="Two Players" colour="blue" link="new/select-planets" disabled="true"></gaz-menu-item>
+    <gaz-menu-item (onClick)="setPlayers(3)" label="Three Players" colour="blue" link="new/select-planets" disabled="true"></gaz-menu-item>
+    <gaz-menu-item (onClick)="setPlayers(4)" label="Four Players" colour="blue" link="new/select-planets" disabled="true"></gaz-menu-item>
+    <gaz-menu-item (onClick)="setPlayers(5)" label="Five Players" colour="blue" link="new/select-planets" disabled="true"></gaz-menu-item>
+    <gaz-menu-item (onClick)="setPlayers(6)" label="Six Players" colour="blue" link="new/select-planets" disabled="true"></gaz-menu-item>
   </div>
   <div class="col-md-8 menu">
     <div class="blurb">

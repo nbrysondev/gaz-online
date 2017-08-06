@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Planet, Company, Ship } from '../../models';
-import { Planets, Companies, Ships } from '../../../assets/data';
+import { Component, OnInit,  EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'gaz-new-game',
@@ -8,17 +7,7 @@ import { Planets, Companies, Ships } from '../../../assets/data';
   styleUrls: ['./new-game.component.css']
 })
 export class NewGameComponent {
-
-  @Output() onChange: EventEmitter<any> = new EventEmitter();
-
-  public companyName: string;
-
-  public companies: Array<Company> = [];
-  public ships: Array<Ship> = [];
-
   ngOnInit() {
-    this.companies = Companies;
-    this.ships = Ships;
     /*
     this.player = {
       id: null,
@@ -31,11 +20,5 @@ export class NewGameComponent {
       marketStrength: 400
     }
     */
-
   }
-
-  public setCompanyName(event: any) {
-    //this.player.name = this.companyName;
-  }
-
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { InfoService } from '../../../services';
 
 @Component({
   selector: 'gaz-info',
@@ -10,7 +11,7 @@ export class InfoComponent implements OnInit {
   public blurb: string;
   public img: string;
 
-  constructor() { }
+  constructor(private infoService: InfoService) { }
 
   ngOnInit() {
   }

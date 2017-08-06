@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Planet, Ship, Commodity, Company } from '../models';
-
-interface GameState {
-  planets: Array<Planet>,
-  ships: Array<Ship>,
-  commodities: Array<Commodity>,
-  companies: Array<Company>
-}
-
+import { CompanyService, PlanetService, GameSettingsService } from '.';
 
 @Injectable()
 export class GameStateService {
 
-  private gameState: GameState;
+  constructor(
+    private companyService: CompanyService, 
+    private planetService: PlanetService, 
+    private gameSettings: GameSettingsService
+  ) { }
 
-  constructor() { }
+  public save() {
 
+  }
+
+  public load() {
+
+  }
+
+  public log() {
+    console.log({
+      companies: this.companyService.getAll(),
+      planets: this.planetService.getAll(),
+      settings: this.gameSettings.getAll()
+    });
+  }
   
 }

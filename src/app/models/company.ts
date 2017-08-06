@@ -1,13 +1,12 @@
+import {Ship, Planet, Commodity, GameEntity} from '.';
 /**
 * CompanyContent
 *
 * @interface CompanyContent
-* @param slug           {string}
 * @param name           {string}
 * @param personality    {string}
 */
-export interface CompanyContent {
-    slug: string;
+export interface CompanyContent extends GameEntity {
     name: string;
     personality: string;
 }
@@ -17,14 +16,16 @@ export interface CompanyContent {
 * @interface Company
 * @extends CompanyContent
 * @param marketStrength {number} 
-* @param shipId         {number} 
-* @param planetId       {number} 
+* @param ship           {Ship} 
+* @param planet         {Planet} 
+* @param commodities    {Array<Commodity>}
 * @param player         {number} 
 */
 export interface Company extends CompanyContent {
     marketStrength: number;
     netWorth: number;
-    shipId: number;
-    planetId: number;
+    ship: Ship;
+    planet: Planet;
+    commodities: Array<Commodity>;
     player: number;
 }

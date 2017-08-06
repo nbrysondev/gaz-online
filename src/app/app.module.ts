@@ -7,28 +7,30 @@ import { GlobalErrorHandler } from './exceptions/global-error-handler';
 
 import { AppComponent } from './app.component';
 // Menu components
-import {MainMenuComponent,CompetitorsMenuComponent, DifficultyMenuComponent, PlanetsMenuComponent,
-        PlayersMenuComponent, ShipMenuComponent} from './components/menus';
+import { MainMenuComponent,CompetitorsMenuComponent, DifficultyMenuComponent, PlanetsMenuComponent,
+        PlayersMenuComponent, ShipMenuComponent } from './components/menus';
 // UI
-import {MenuItemComponent} from './components/menu-item/menu-item.component';
+import { MenuItemComponent } from './components/menu-item/menu-item.component';
 // Core component
-import {GameComponent, DepartComponent, GraphsComponent, HelpComponent, HyperspaceComponent,
-       NewGameComponent, NewWeekComponent} from './components';
+import { GameComponent, DepartComponent, GraphsComponent, HelpComponent, HyperspaceComponent,
+       NewGameComponent, NewWeekComponent } from './components';
 // Planet landing components
-import {PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, InsuranceComponent,
+import { PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, InsuranceComponent,
         LenderLoanComponent, LoanComponent, MarketplaceComponent, PassengersComponent, StockMarketComponent,
-        SupplyComponent, TaxesComponent, WagesComponent, WarehouseComponent} from './components/planet';
+        SupplyComponent, TaxesComponent, WagesComponent, WarehouseComponent } from './components/planet';
 // Planet specific components
-import {ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
-        PlanetSpecialComponent, PlanetTimeComponent, PlanetWeatherComponent} from './components/explore-planet';
+import { ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
+        PlanetSpecialComponent, PlanetTimeComponent, PlanetWeatherComponent } from './components/explore-planet';
 // Guards
-import {GameGuard, PlanetGuard} from './guards';
+import { GameGuard, PlanetGuard } from './guards';
 
 // Services
-import { ContentService, SoundService, PlanetService, CommodityService, ShipService, CompanyService, GameSettingsService } from './services';
+import { ContentService, SoundService, PlanetService, CommodityService, ShipService, CompanyService, 
+         GameSettingsService, GameStateService, InfoService } from './services';
 
 // Pipes
 import { ContentPipe, ContentFilterPipe } from './pipes';
+import { IntroductionComponent } from './components/introduction/introduction.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { ContentPipe, ContentFilterPipe } from './pipes';
     PlanetAboutComponent,
     MenuItemComponent,
     ContentPipe,
-    ContentFilterPipe
+    ContentFilterPipe,
+    IntroductionComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +80,7 @@ import { ContentPipe, ContentFilterPipe } from './pipes';
     routing
   ],
   providers: [
+    GameStateService,
     GameSettingsService,
     ContentService,
     SoundService,
@@ -84,6 +88,7 @@ import { ContentPipe, ContentFilterPipe } from './pipes';
     ShipService,
     PlanetService,
     CompanyService,
+    InfoService,
     GameGuard, 
     PlanetGuard,
     {

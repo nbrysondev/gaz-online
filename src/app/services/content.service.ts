@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Planet, Ship, Commodity, Company } from '../models';
+import { PlanetContent, Ship, Commodity, CompanyContent } from '../models';
 import { GameContent, Planets, Ships, Commodities, Companies } from '../../assets/data';
 
 interface GameData {
   content: Object,
-  planets: Array<Planet>,
+  planets: Array<PlanetContent>,
   ships: Array<Ship>,
   commodities: Array<Commodity>,
-  companies: Array<Company>
+  companies: Array<CompanyContent>
 }
 
 @Injectable()
@@ -56,11 +56,11 @@ export class ContentService {
     return "";
   }
 
-  public getCompanies(): Array<Company> {
+  public getCompanies(): Array<CompanyContent> {
     return this.gameData.companies;
   }
 
-  public getPlanets(): Array<Planet> {
+  public getPlanets(): Array<PlanetContent> {
     return this.gameData.planets;
   }
 

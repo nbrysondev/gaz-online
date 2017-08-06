@@ -1,48 +1,39 @@
 import { Injectable } from '@angular/core';
+import { EntityService } from '.';
 import { Planet, PlanetContent } from '../models';
 
-
 @Injectable()
-export class PlanetService {
+export class PlanetService extends EntityService {
 
-  private planets: Array<Planet>;
-
-  constructor() { }
-
-  public get(slug: string): Planet {
-    let planets = this.planets.filter(planet => slug === planet.slug);
-    return planets[0];
-  }
-
-  public getAll(): Array<Planet> {
-    return this.planets;
-  }
-
-  public add(planet: PlanetContent) {
-    this.planets.push(planet);
-  }
-
-  public addMultiple(planets: Array<PlanetContent>) {
-    this.planets.concat(planets);
-  }
-
-  public replace(oldPlanet: Planet, newPlanet: Planet) {
-    // Add the planet the player has chosen to the selected planets array
-    this.planets = this.planets.map(
-      planet => planet === oldPlanet ? newPlanet : planet 
-    );
-  }
-
-  public clear() {
-    this.planets = [];
-  }
+  protected entities: Array<Planet>;
 
   public hasPlanets() {
-    if (this.planets) {
-      return this.planets.length > 0;
+    if (this.entities) {
+      return this.entities.length > 0;
     } else {
       return false;
     }
+  }
+
+  /**
+  * Creates a new Planet from a PlanetContent instance
+  *
+  * @function create
+  * @param company {PlanetContent}
+  * @return {Planet}
+  */
+  protected create(planet: PlanetContent): Planet {
+    return Object.assign(
+      planet,
+      {
+        marketStrength: 0,
+        netWorth: 0,
+        ship: null,
+        planet: null,
+        commodities: [],
+        player: null
+      }
+    )
   }
 
 }

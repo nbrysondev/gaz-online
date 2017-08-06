@@ -10,7 +10,8 @@ export class MenuItemComponent implements OnInit {
 
   @Input() label: string;
   @Input() link: string;
-  @Input() colour: string;
+  @Input() colour: string = 'blue';
+  @Input() disabled: boolean = false;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
   constructor(
@@ -21,9 +22,11 @@ export class MenuItemComponent implements OnInit {
   }
 
   public itemClicked(event) {
-    this.onClick.emit();
-    if (this.link) {
-      this.router.navigate(['/'+this.link]);
+    if (!this.disabled) {
+      this.onClick.emit();
+      if (this.link) {
+        this.router.navigate(['/'+this.link]);
+      }
     }
   }
 

@@ -11,3 +11,17 @@ export interface Commodity {
     minPrice: number;
     maxPrice: number;
 }
+/**
+* CommodityInstance
+*
+* @interface CommodityInstance
+* @param type     {Commodity}
+* @param price    {number}
+* @param quantity {quantity}
+*/
+export interface CommodityInstance {
+    commodity: Commodity;
+    price: number;
+    quantity: number;
+}
+

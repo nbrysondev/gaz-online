@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Company } from '../../../models';
+import { Company, CompanyContent } from '../../../models';
 import { SoundService, ContentService, CompanyService } from '../../../services';
 
 @Component({
@@ -9,7 +9,7 @@ import { SoundService, ContentService, CompanyService } from '../../../services'
 })
 export class CompetitorsMenuComponent implements OnInit {
 
-  public competitors: Array<Company> = [];
+  public competitors: Array<CompanyContent> = [];
  
   constructor(
     private soundService: SoundService, 
@@ -23,7 +23,7 @@ export class CompetitorsMenuComponent implements OnInit {
     this.soundService.play("main-menu-select.ogg");
   }
 
-  public setCompetitors(competitors: Array<Company>) {
+  public setCompetitors(competitors: Array<CompanyContent>) {
     this.companyService.addMultiple(competitors);
   }
 

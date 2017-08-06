@@ -8,7 +8,6 @@ import { SoundService, GameSettingsService } from '../../../services';
 })
 export class PlayersMenuComponent implements OnInit {
 
-  public players = ["One", "Two", "Three", "Four", "Five", "Six"];
   public heading: string;
   public blurb: string;
 

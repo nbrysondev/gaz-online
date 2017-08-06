@@ -1,35 +1,53 @@
 import { Injectable } from '@angular/core';
-import { Company } from '../models';
-
+import { EntityService } from '.';
+import { Company, CompanyContent } from '../models';
 
 @Injectable()
-export class CompanyService {
+export class CompanyService extends EntityService {
 
-  private companies: Array<Company>;
+  protected entities: Array<Company>;
 
-  constructor() { }
-
-  public add(company: Company) {
-    this.companies.push(company);
-  }
-
-  public addPlayerCompanies(quantity: number) {
+  /**
+  * Adds a given number of player companies to the companies array
+  *
+  * @function addPlayerCompanies
+  * @param quanity {number}
+  */
+  public addPlayerCompanies(quantity: number): void {
     for (let i = 1; i <= quantity; i++) {
-      this.companies.push({
+      this.entities.push({
         slug: "player-"+i,
         name: "",
         personality: "",
         marketStrength: null,
         netWorth: null,
-        shipId: null,
-        planetId: null,
+        ship: null,
+        planet: null,
+        commodities: [],
         player: i
       });
     }
   }
 
-  public addMultiple(companies: Array<Company>) {
-    this.companies.concat(companies);
+  /**
+  * Creates a new Company from a CompanyContent instance
+  *
+  * @function create
+  * @param company {CompanyContent}
+  * @return {Company}
+  */
+  protected create(company: CompanyContent): Company {
+    return Object.assign(
+      company,
+      {
+        marketStrength: 0,
+        netWorth: 0,
+        ship: null,
+        planet: null,
+        commodities: [],
+        player: null
+      }
+    )
   }
 
 }

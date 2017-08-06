@@ -5,3 +5,4 @@ export * from './graphs/graphs.component';
 export * from './help/help.component';
 export * from './new-game/new-game.component';
 export * from './new-week/new-week.component';
+export * from './introduction/introduction.component';
