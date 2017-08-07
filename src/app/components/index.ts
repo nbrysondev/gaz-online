@@ -6,3 +6,4 @@ export * from './help/help.component';
 export * from './new-game/new-game.component';
 export * from './new-week/new-week.component';
 export * from './introduction/introduction.component';
+export * from './planet-intro/planet-intro.component';

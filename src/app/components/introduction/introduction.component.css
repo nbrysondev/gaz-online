@@ -1,0 +1,27 @@
+.image {
+  border: 5px #40405b solid;
+  background-color: #6b6b7a;
+  padding: 15px;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.blurb {
+  color: #fff;
+  padding: 30px;
+}
+
+::ng-deep .blurb p {
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+
+gaz-menu-item {
+  position: absolute;
+  bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  left: 0;
+  right: 0;
+}

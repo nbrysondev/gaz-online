@@ -17,15 +17,6 @@ h2 {
   margin-top: 30px;
 }
 
-.wrapper {
-  border: 10px #353558 solid;
-  background-color: #000030;
-  border-radius: 15px;
-  padding: 25px;
-  position: relative;
-  z-index: 0;
-}
-
 .shipContainer {
   background-color: #9494a1;
   padding: 10px;

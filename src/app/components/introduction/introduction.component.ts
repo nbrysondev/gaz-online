@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SoundService } from '../../services';
 
 @Component({
   selector: 'gaz-introduction',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroductionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private soundService: SoundService) { }
 
   ngOnInit() {
+    this.soundService.play("characters/lender.ogg");
   }
 
 }

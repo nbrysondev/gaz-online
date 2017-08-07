@@ -37,3 +37,11 @@ button.grey {
 button.grey:hover:enabled {
   background-color: #5a5c6a;
 }
+
+button.green {
+  background-color: #7bb129;
+}
+
+button.green:hover:enabled {
+  background-color: #497f0b;
+}

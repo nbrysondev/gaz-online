@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.wrapper {
+  border: 10px #353558 solid;
+  background-color: #000030;
+  border-radius: 15px;
+  padding: 25px;
+  position: relative;
+  z-index: 0;
+}

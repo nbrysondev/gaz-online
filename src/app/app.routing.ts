@@ -4,7 +4,7 @@ import {MainMenuComponent,CompetitorsMenuComponent, DifficultyMenuComponent, Pla
         PlayersMenuComponent, ShipMenuComponent} from './components/menus';
 // Core component
 import {GameComponent, DepartComponent, GraphsComponent, HelpComponent, HyperspaceComponent,
-       NewGameComponent, NewWeekComponent, IntroductionComponent} from './components';
+       NewGameComponent, NewWeekComponent, IntroductionComponent, PlanetIntroComponent} from './components';
 // Planet landing components
 import {PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, InsuranceComponent,
         LenderLoanComponent, LoanComponent, MarketplaceComponent, PassengersComponent, StockMarketComponent,
@@ -61,6 +61,10 @@ const appRoutes: Routes = [
           { 
             path: 'new-week', 
             component: NewWeekComponent
+          },
+          {
+            path: 'planet-intro',
+            component: PlanetIntroComponent
           },
           {
             path: 'graphs',
