@@ -22,8 +22,9 @@ import { PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, In
 import { ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
         PlanetSpecialComponent, PlanetTimeComponent, PlanetWeatherComponent } from './components/explore-planet';
 // Guards
-import { GameGuard, PlanetGuard } from './guards';
-
+import { GameGuard, PlanetGuard, PlanetsMenuGuard, PlayersMenuGuard, SelectShipGuard, IntroductionGuard, 
+         CompetitorsMenuGuard } from './guards';
+    
 // Services
 import { ContentService, SoundService, PlanetService, CommodityService, ShipService, CompanyService, 
          GameSettingsService, GameStateService, InfoService } from './services';
@@ -93,6 +94,11 @@ import { PlanetIntroComponent } from './components/planet-intro/planet-intro.com
     InfoService,
     GameGuard, 
     PlanetGuard,
+    PlanetsMenuGuard,
+    PlayersMenuGuard,
+    SelectShipGuard,
+    IntroductionGuard,
+    CompetitorsMenuGuard,
     {
       provide: ErrorHandler,
       useClass: GlobalErrorHandler

@@ -1,13 +1,5 @@
 C:\Program Files (x86)\Gazillionaire III v3.04
 
-// After ship select;
-    // Zinn info
-    Mr. Zinn, a wealthy and somewhat fickle financier, generously loans you the 120,000 kubars necessary to get your company going.
-    However, you must pay Mr. Zinn 4% interest per week.
-    Mr. Zinn wishes you the best of luck on your new venture and hopes he will never have to repossess your ship.
-    // Summary page 
-    // Planet screen
-
 // Statuses
 Merchant, Business Person, Trader, Entrepreneur
 -238,000 (Unprosperous)

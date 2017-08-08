@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SoundService, GameSettingsService } from '../../../services';
+import { SoundService, CompanyService } from '../../../services';
 
 @Component({
   selector: 'gaz-players-menu',
@@ -13,7 +13,7 @@ export class PlayersMenuComponent implements OnInit {
 
   constructor(
     private soundService: SoundService,
-    private gameSettings: GameSettingsService
+    private companyService: CompanyService
   ) { }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class PlayersMenuComponent implements OnInit {
   }
 
   public setPlayers(players: string) {
-    this.gameSettings.set("numOfPlayers", players);
+    this.companyService.addPlayerCompanies(Number(players));
   }
 
 }

@@ -16,7 +16,7 @@
   </div>
   <div *ngIf="!nameChosen" class="nameModal">
     <div class="nameForm">
-        <h3>Player 1</h3>
+        <h3>Player {{company.player}}</h3>
         <p>Please name your company:</p>
         <input type="text" onClick="this.select();" [(ngModel)]="companyName" #ctrl="ngModel"  /><br />
         <button (click)="setName()">OK</button>
@@ -42,18 +42,9 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-      <gaz-menu-item  colour="grey" (onClick)="selectShip()" link="game" label="Yes" ></gaz-menu-item>
+      <gaz-menu-item  colour="grey" (onClick)="selectShip()" link="new/introduction" label="Yes" ></gaz-menu-item>
       <gaz-menu-item  colour="grey" (onClick)="unselectShip()" label="No" ></gaz-menu-item>
     </div>
     <div class="col-md-2"></div>
   </div>
 </div>
-
-
-<!--<div>
-  {{player.ship}}
-  <p>{{player.ship.summary}}</p>
-  <p>Do you wish to purchase this ship?</p>
-  <button (click)="nextStep()">Yes</button>
-  <button (click)="state = states.ShipMenu">No</button>
-</div>-->

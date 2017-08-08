@@ -13,7 +13,8 @@ import {PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, Ins
 import {ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
         PlanetSpecialComponent, PlanetTimeComponent, PlanetWeatherComponent} from './components/explore-planet';
 // Guards
-import {GameGuard, PlanetGuard} from './guards';
+import {GameGuard, PlanetGuard, PlayersMenuGuard, CompetitorsMenuGuard, SelectShipGuard, 
+        PlanetsMenuGuard, IntroductionGuard} from './guards';
 
 const appRoutes: Routes = [
     { 
@@ -31,20 +32,40 @@ const appRoutes: Routes = [
         },
         {
           path: 'select-players',
+          canActivate: [PlayersMenuGuard],
           component: PlayersMenuComponent
         },
         {
           path: 'select-planets',
+          canActivate: [PlayersMenuGuard,PlanetsMenuGuard],
           component: PlanetsMenuComponent
         },
         {
           path: 'competitors',
+          canActivate: [PlayersMenuGuard,PlanetsMenuGuard,CompetitorsMenuGuard],
           component: CompetitorsMenuComponent
         },
         {
           path: 'select-ship',
+          canActivate: [
+            PlayersMenuGuard,
+            PlanetsMenuGuard,
+            CompetitorsMenuGuard,
+            SelectShipGuard
+          ],
           component: ShipMenuComponent
         },
+        { 
+          path: 'introduction',
+          canActivate: [
+            PlayersMenuGuard,
+            PlanetsMenuGuard,
+            CompetitorsMenuGuard,
+            SelectShipGuard,
+            IntroductionGuard
+          ],
+          component: IntroductionComponent
+        }
       ]
     },
     {
@@ -53,11 +74,7 @@ const appRoutes: Routes = [
       canActivate: [GameGuard],
       data: { title: 'newgame' },
       children: [
-          { path: '', redirectTo: 'introduction', pathMatch: 'full' },
-          { 
-            path: 'introduction', 
-            component: IntroductionComponent
-          },          
+          { path: '', redirectTo: 'new-week', pathMatch: 'full' },    
           { 
             path: 'new-week', 
             component: NewWeekComponent

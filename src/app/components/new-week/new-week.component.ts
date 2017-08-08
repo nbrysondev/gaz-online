@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SoundService, CompanyService } from '../../services';
 
 @Component({
   selector: 'gaz-new-week',
