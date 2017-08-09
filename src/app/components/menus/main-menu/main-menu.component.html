@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-4 menu">
-    <gaz-menu-item label="Start New Game" colour="blue" link="new"></gaz-menu-item>
-    <gaz-menu-item label="Load Saved Game" colour="blue" (onClick)="changeMenuState(states.NewGame)" disabled="true"></gaz-menu-item>
-    <gaz-menu-item label="Load Group Game" colour="blue" (onClick)="changeMenuState(states.NewGame)" disabled="true"></gaz-menu-item>
-    <gaz-menu-item label="About {{'title' | content}}" colour="blue" (onClick)="changeMenuState(states.NewGame)" disabled="true"></gaz-menu-item>
-    <gaz-menu-item label="About LavaMind" colour="blue" (onClick)="changeMenuState(states.NewGame)" disabled="true"></gaz-menu-item>
+    <gaz-menu-item label="Start New Game" colour="blue" (onClick)="newGame()" link="new"></gaz-menu-item>
+    <gaz-menu-item label="Load Saved Game" colour="blue" disabled="true"></gaz-menu-item>
+    <gaz-menu-item label="Load Group Game" colour="blue" disabled="true"></gaz-menu-item>
+    <gaz-menu-item label="About {{'title' | content}}" colour="blue" disabled="true"></gaz-menu-item>
+    <gaz-menu-item label="About LavaMind" colour="blue" disabled="true"></gaz-menu-item>
     <gaz-menu-item label="Sound {{soundStatus}}" colour="gold" (onClick)="toggleSound()"></gaz-menu-item>
     <gaz-menu-item label="Quit" colour="gold"></gaz-menu-item>
   </div>

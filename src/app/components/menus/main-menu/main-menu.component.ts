@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SoundService } from '../../../services';
+import { SoundService, GameSettingsService } from '../../../services';
 @Component({
   selector: 'gaz-main-menu',
   templateUrl: './main-menu.component.html',
@@ -9,7 +9,7 @@ export class MainMenuComponent implements OnInit {
 
   public soundStatus: string;
 
-  constructor(private soundService: SoundService) { }
+  constructor(private soundService: SoundService, private gameSettingsService: GameSettingsService) { }
 
   ngOnInit() {
     this.setSound();
@@ -18,6 +18,10 @@ export class MainMenuComponent implements OnInit {
   public toggleSound() {
     this.soundService.toggleSound();
     this.setSound();
+  }
+
+  public newGame() {
+    this.gameSettingsService.set("newGameSetup", true);
   }
 
   private setSound() {

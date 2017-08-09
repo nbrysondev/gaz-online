@@ -9,7 +9,8 @@ export class GameSettingsService {
   constructor() {
     this.settings = {
       numOfPlayers: null,
-      difficulty: null
+      difficulty: null,
+      newGameSetup: false
     };
    }
 

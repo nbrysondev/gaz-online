@@ -4,7 +4,7 @@ import {MainMenuComponent,CompetitorsMenuComponent, DifficultyMenuComponent, Pla
         PlayersMenuComponent, ShipMenuComponent} from './components/menus';
 // Core component
 import {GameComponent, DepartComponent, GraphsComponent, HelpComponent, HyperspaceComponent,
-       NewGameComponent, NewWeekComponent, IntroductionComponent, PlanetIntroComponent} from './components';
+        NewWeekComponent, IntroductionComponent, PlanetIntroComponent} from './components';
 // Planet landing components
 import {PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, InsuranceComponent,
         LenderLoanComponent, LoanComponent, MarketplaceComponent, PassengersComponent, StockMarketComponent,
@@ -13,8 +13,7 @@ import {PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, Ins
 import {ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
         PlanetSpecialComponent, PlanetTimeComponent, PlanetWeatherComponent} from './components/explore-planet';
 // Guards
-import {GameGuard, PlanetGuard, PlayersMenuGuard, CompetitorsMenuGuard, SelectShipGuard, 
-        PlanetsMenuGuard, IntroductionGuard} from './guards';
+import { GameGuard, PlanetGuard, NewGameGuard } from './guards';
 
 const appRoutes: Routes = [
     { 
@@ -23,7 +22,7 @@ const appRoutes: Routes = [
     },
     { 
       path: 'new', 
-      component:  NewGameComponent,
+      canActivate: [NewGameGuard],
       children: [
         { path: '', redirectTo: 'select-difficulty', pathMatch: 'full' },
         {
@@ -32,38 +31,22 @@ const appRoutes: Routes = [
         },
         {
           path: 'select-players',
-          canActivate: [PlayersMenuGuard],
           component: PlayersMenuComponent
         },
         {
           path: 'select-planets',
-          canActivate: [PlayersMenuGuard,PlanetsMenuGuard],
           component: PlanetsMenuComponent
         },
         {
           path: 'competitors',
-          canActivate: [PlayersMenuGuard,PlanetsMenuGuard,CompetitorsMenuGuard],
           component: CompetitorsMenuComponent
         },
         {
           path: 'select-ship',
-          canActivate: [
-            PlayersMenuGuard,
-            PlanetsMenuGuard,
-            CompetitorsMenuGuard,
-            SelectShipGuard
-          ],
           component: ShipMenuComponent
         },
         { 
           path: 'introduction',
-          canActivate: [
-            PlayersMenuGuard,
-            PlanetsMenuGuard,
-            CompetitorsMenuGuard,
-            SelectShipGuard,
-            IntroductionGuard
-          ],
           component: IntroductionComponent
         }
       ]

@@ -8,12 +8,12 @@ import { GlobalErrorHandler } from './exceptions/global-error-handler';
 import { AppComponent } from './app.component';
 // Menu components
 import { MainMenuComponent,CompetitorsMenuComponent, DifficultyMenuComponent, PlanetsMenuComponent,
-        PlayersMenuComponent, ShipMenuComponent } from './components/menus';
+         PlayersMenuComponent, ShipMenuComponent } from './components/menus';
 // UI
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 // Core component
 import { GameComponent, DepartComponent, GraphsComponent, HelpComponent, HyperspaceComponent,
-       NewGameComponent, NewWeekComponent } from './components';
+         NewWeekComponent } from './components';
 // Planet landing components
 import { PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, InsuranceComponent,
         LenderLoanComponent, LoanComponent, MarketplaceComponent, PassengersComponent, StockMarketComponent,
@@ -22,8 +22,7 @@ import { PlanetComponent, AdvertisingComponent, BankComponent, FuelComponent, In
 import { ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
         PlanetSpecialComponent, PlanetTimeComponent, PlanetWeatherComponent } from './components/explore-planet';
 // Guards
-import { GameGuard, PlanetGuard, PlanetsMenuGuard, PlayersMenuGuard, SelectShipGuard, IntroductionGuard, 
-         CompetitorsMenuGuard } from './guards';
+import { GameGuard, PlanetGuard, NewGameGuard } from './guards';
     
 // Services
 import { ContentService, SoundService, PlanetService, CommodityService, ShipService, CompanyService, 
@@ -37,7 +36,6 @@ import { PlanetIntroComponent } from './components/planet-intro/planet-intro.com
 @NgModule({
   declarations: [
     AppComponent,
-    NewGameComponent,
     ExplorePlanetComponent,
     HelpComponent,
     MainMenuComponent,
@@ -94,11 +92,7 @@ import { PlanetIntroComponent } from './components/planet-intro/planet-intro.com
     InfoService,
     GameGuard, 
     PlanetGuard,
-    PlanetsMenuGuard,
-    PlayersMenuGuard,
-    SelectShipGuard,
-    IntroductionGuard,
-    CompetitorsMenuGuard,
+    NewGameGuard,
     {
       provide: ErrorHandler,
       useClass: GlobalErrorHandler
