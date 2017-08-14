@@ -15,11 +15,12 @@ export interface CompanyContent extends GameEntity {
 *
 * @interface Company
 * @extends CompanyContent
-* @param marketStrength {number} 
-* @param ship           {Ship} 
-* @param planet         {Planet} 
+* @param marketStrength {number}
+* @param netWorth       {number}
+* @param ship           {Ship}
+* @param planet         {Planet}
 * @param commodities    {Array<Commodity>}
-* @param player         {number} 
+* @param player         {number}
 */
 export interface Company extends CompanyContent {
     marketStrength: number;

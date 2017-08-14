@@ -6,7 +6,7 @@ export abstract class EntityService {
 
   protected abstract entities: Array<GameEntity>;
 
-  constructor() { 
+  constructor() {
     this.entities = [];
   }
 
@@ -37,8 +37,22 @@ export abstract class EntityService {
   * @function get
   * @return {any}
   */
-  public get(slug: string): any {
-    let entities = this.entities.filter(entity => slug === entity.slug);
+  public get(index: number): any {
+    if (this.entities.hasOwnProperty(index)) {
+      return this.entities[index];
+    } else {
+      return null;
+    }
+  }
+
+  /**
+  * Return selected entity
+  *
+  * @function getBySlug
+  * @return {any}
+  */
+  public getBySlug(slug: string): any {
+    const entities = this.entities.filter(entity => slug === entity.slug);
     return entities[0];
   }
 
@@ -69,9 +83,9 @@ export abstract class EntityService {
   * @param entities {Array<GameEntity>}
   */
   public addMultiple(entities: Array<GameEntity>): void {
-    entities.reduce((entities, entityContent) => {
-      entities.push(this.create(entityContent));
-      return entities;
+    entities.reduce((ents, entityContent) => {
+      ents.push(this.create(entityContent));
+      return ents;
     }, this.entities);
   }
 

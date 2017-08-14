@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SoundService } from '../../services';
+import { SoundService, GameStateService } from '../../services';
 
 @Component({
   selector: 'gaz-introduction',
@@ -8,10 +8,17 @@ import { SoundService } from '../../services';
 })
 export class IntroductionComponent implements OnInit {
 
-  constructor(private soundService: SoundService) { }
+  constructor(
+      private soundService: SoundService,
+      private gameStateService: GameStateService
+  ) { }
 
   ngOnInit() {
-    this.soundService.play("characters/lender.ogg");
+    this.soundService.play('characters/lender.ogg');
+  }
+
+  public checkTurnState() {
+    this.gameStateService.setup();
   }
 
 }

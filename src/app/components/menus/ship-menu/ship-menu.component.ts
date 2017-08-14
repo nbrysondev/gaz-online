@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Company, Ship } from '../../../models';
-import { SoundService, CompanyService, ContentService } from '../../../services';
+import { SoundService, CompanyService, GameStateService } from '../../../services';
 
 @Component({
   selector: 'gaz-ship-menu',
@@ -17,22 +16,18 @@ export class ShipMenuComponent implements OnInit {
   public company: Company;
 
   constructor(
-    private soundService: SoundService, 
-    private contentService: ContentService, 
+    private soundService: SoundService,
     private companyService: CompanyService,
-    private router: Router
-  ) { 
-    this.ships = this.contentService.getShips();
-    this.companyName = "Player 1 Inc.";
+    private gameStateService: GameStateService
+  ) {
+    this.ships = this.companyService.getAvailableShips();
     this.nameChosen = false;
-    this.company = this.companyService.getCurrentPlayer();
-    if (!this.company) {
-      this.router.navigate(["/"]);
-    }
+    this.company = this.gameStateService.getCurrentPlayer();
+    this.companyName = 'Player ' + this.company.player + ' Inc.';
   }
 
   ngOnInit() {
-    this.soundService.play("modal-ping.ogg");
+    this.soundService.play('modal-ping.ogg');
   }
 
   public setName() {
@@ -41,7 +36,7 @@ export class ShipMenuComponent implements OnInit {
 
   public showShipDetails(ship: Ship) {
     this.selectedShip = ship;
-    this.soundService.play("ships/"+ship.slug+".ogg");
+    this.soundService.play('ships/' + ship.slug + '.ogg');
   }
 
   public unselectShip() {
@@ -50,7 +45,7 @@ export class ShipMenuComponent implements OnInit {
   }
 
   public selectShip() {
+    this.companyService.addShipToCompany(this.company, this.selectedShip);
     this.soundService.stop();
   }
-  
 }

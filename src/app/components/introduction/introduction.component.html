@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-7">
       <div class="blurb" [innerHTML]="'content.introduction.blurb' | content"></div>
-      <gaz-menu-item label="OK" colour="grey" link="game/new-week" ></gaz-menu-item>
+      <gaz-menu-item label="OK" colour="grey" (onClick)="checkTurnState()" ></gaz-menu-item>
     </div>   
   </div>
 </div>

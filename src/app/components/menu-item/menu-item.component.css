@@ -7,6 +7,8 @@ button {
   cursor: pointer;
   width: 100%;
   color: #fff;
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
 button:disabled {
@@ -14,28 +16,54 @@ button:disabled {
   cursor: default;
 }
 
+
+
 button.blue {
-  background-color: #289ee5;  
+  background-color: #289ee5;
+  background-image: -webkit-linear-gradient(180deg, #289ee5 50%, #127dd3 50%);
+  background-image: -moz-linear-gradient(180deg, #289ee5 50%, #127dd3 50%);
+  background-image: -ms-linear-gradient(180deg, #289ee5 50%, #127dd3 50%);
+  background-image: linear-gradient(180deg, #289ee5 50%, #127dd3 50%);
 }
 
 button.blue:hover:enabled {
-  background-color: #0b6ed1;
+  background-color: #0b6fd2;
+  background-image: -webkit-linear-gradient(180deg, #0b6fd2 50%, #004eb7 50%);
+  background-image: -moz-linear-gradient(180deg, #0b6fd2 50%, #004eb7 50%);
+  background-image: -ms-linear-gradient(180deg, #0b6fd2 50%, #004eb7 50%);
+  background-image: linear-gradient(180deg, #0b6fd2 50%, #004eb7 50%);
 }
 
 button.gold {
   background-color: #e59c26;
+  background-image: -webkit-linear-gradient(180deg,#e59c26 50%, #d37e11 50%);
+  background-image: -moz-linear-gradient(180deg, #e59c26 50%, #d37e11 50%);
+  background-image: -ms-linear-gradient(180deg, #e59c26 50%, #d37e11 50%);
+  background-image: linear-gradient(180deg, #e59c26 50%, #d37e11 50%);
 }
 
 button.gold:hover:enabled {
-  background-color: #d0700b;
+  background-color: #d1710b;
+  background-image: -webkit-linear-gradient(180deg, #d1710b 50%, #b24e00 50%);
+  background-image: -moz-linear-gradient(180deg, #d1710b 50%, #b24e00 50%);
+  background-image: -ms-linear-gradient(180deg, #d1710b 50%, #b24e00 50%);
+  background-image: linear-gradient(180deg, #d1710b 50%, #b24e00 50%);
 }
 
 button.grey {
   background-color: #82828f;
+  background-image: -webkit-linear-gradient(180deg,#82828f 50%, #626271 50%);
+  background-image: -moz-linear-gradient(180deg, #82828f 50%, #626271 50%);
+  background-image: -ms-linear-gradient(180deg, #82828f 50%, #626271 50%);
+  background-image: linear-gradient(180deg, #82828f 50%, #626271 50%);
 }
 
 button.grey:hover:enabled {
   background-color: #5a5c6a;
+  background-image: -webkit-linear-gradient(180deg, #5a5c6a 50%, #3e3e4e 50%);
+  background-image: -moz-linear-gradient(180deg, #5a5c6a 50%, #3e3e4e 50%);
+  background-image: -ms-linear-gradient(180deg, #5a5c6a 50%, #3e3e4e 50%);
+  background-image: linear-gradient(180deg, #5a5c6a 50%, #3e3e4e 50%);
 }
 
 button.green {

@@ -16,12 +16,12 @@ import {ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
 import { GameGuard, PlanetGuard, NewGameGuard } from './guards';
 
 const appRoutes: Routes = [
-    { 
-      path: '', 
+    {
+      path: '',
       component:  MainMenuComponent
     },
-    { 
-      path: 'new', 
+    {
+      path: 'new',
       canActivate: [NewGameGuard],
       children: [
         { path: '', redirectTo: 'select-difficulty', pathMatch: 'full' },
@@ -45,7 +45,7 @@ const appRoutes: Routes = [
           path: 'select-ship',
           component: ShipMenuComponent
         },
-        { 
+        {
           path: 'introduction',
           component: IntroductionComponent
         }
@@ -57,9 +57,9 @@ const appRoutes: Routes = [
       canActivate: [GameGuard],
       data: { title: 'newgame' },
       children: [
-          { path: '', redirectTo: 'new-week', pathMatch: 'full' },    
-          { 
-            path: 'new-week', 
+          { path: '', redirectTo: 'new-week', pathMatch: 'full' },
+          {
+            path: 'new-week',
             component: NewWeekComponent
           },
           {
@@ -74,22 +74,22 @@ const appRoutes: Routes = [
             path: 'hyperspace',
             component: HyperspaceComponent
           },
-          { 
-            path: 'planet', 
+          {
+            path: 'planet',
             component: PlanetComponent,
             canActivate: [PlanetGuard],
             children: [
               {
                 path: 'depart',
-                component: DepartComponent  
+                component: DepartComponent
               },
               {
                 path: 'fuel',
-                component: FuelComponent  
+                component: FuelComponent
               },
               {
                 path: 'stock-market',
-                component: StockMarketComponent  
+                component: StockMarketComponent
               },
               {
                 path: 'money',
@@ -114,15 +114,15 @@ const appRoutes: Routes = [
               {
                 path: 'supply',
                 component: SupplyComponent
-              }, 
+              },
               {
                 path: 'warehouse',
                 component: WarehouseComponent
-              }, 
+              },
               {
                 path: 'passengers',
                 component: PassengersComponent
-              }, 
+              },
               {
                 path: 'advertising',
                 component: AdvertisingComponent
@@ -146,39 +146,39 @@ const appRoutes: Routes = [
                   {
                     path: 'special',
                     component: PlanetSpecialComponent
-                  },  
+                  },
                   {
                     path: 'weather',
                     component: PlanetWeatherComponent
-                  }, 
+                  },
                   {
                     path: 'news',
                     component: PlanetNewsComponent
-                  }, 
+                  },
                   {
                     path: 'time',
                     component: PlanetTimeComponent
-                  }, 
+                  },
                   {
                     path: 'about',
                     component: PlanetAboutComponent
-                  }, 
+                  },
                 ]
               },
             ]
           }
       ]
     },
-    { 
-      path: 'load', 
+    {
+      path: 'load',
       component:  MainMenuComponent
     },
-    { 
-      path: 'loadgroup', 
+    {
+      path: 'loadgroup',
       component:  MainMenuComponent
     },
-    { 
-      path: 'about', 
+    {
+      path: 'about',
       component:  MainMenuComponent
     },
 ];
