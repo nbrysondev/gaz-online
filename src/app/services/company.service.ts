@@ -5,13 +5,27 @@ import { Company, Ship, CompanyContent } from '../models';
 @Injectable()
 export class CompanyService extends EntityService {
 
+  private static names = ['Merchant', 'Business Person', 'Trader', 'Entrepreneur'];
+
   protected entities: Array<Company>;
   private currentPlayer: number;
+
 
   constructor(protected shipService: ShipService) {
     super();
     this.currentPlayer = 0;
   }
+
+  /**
+  * Returns all companies in order of net worth
+  *
+  * @function getCompaniesRanked
+  * @return {Array<Company>}
+  */
+  public getCompaniesRanked(): Array<Company> {
+    return this.getAll().sort((companyA, companyB) =>  companyA.netWorth - companyB.netWorth);
+  }
+
 
   /**
   * Adds the ship to the selected company
@@ -22,6 +36,17 @@ export class CompanyService extends EntityService {
     company.ship = ship;
   }
 
+  /**
+  * Returns company status string based on net worth
+  *
+  * @todo implement me!
+  * @function addShipToCompany
+  * @param netWorth
+  * @returns string
+  */
+  public getCompanyStatus(netWorth: number): string {
+    return CompanyService.names[Math.floor(Math.random() * CompanyService.names.length)];
+  }
 
   /**
   * Returns the first company that doesn't have a ship
@@ -34,6 +59,20 @@ export class CompanyService extends EntityService {
       return company.ship === null;
     });
   }
+
+  /**
+  * Returns the first company that doesn't have a ship
+  *
+  * @function getBankruptCompanies
+  * @return {string}
+  */
+  public getBankruptCompanies(): string {
+    return this.entities
+      .filter(company => company.isBankrupt)
+      .map(company => company.name)
+      .join(', ');
+  }
+
 
   /**
   * Returns an array of ships that haven't been selected
@@ -79,6 +118,7 @@ export class CompanyService extends EntityService {
         personality: '',
         marketStrength: null,
         netWorth: null,
+        isBankrupt: false,
         ship: null,
         planet: null,
         commodities: [],
@@ -100,6 +140,7 @@ export class CompanyService extends EntityService {
       {
         marketStrength: 0,
         netWorth: 0,
+        isBankrupt: false,
         ship: null,
         planet: null,
         commodities: [],

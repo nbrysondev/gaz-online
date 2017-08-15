@@ -1,16 +1,16 @@
 <div class="wrapper">
   <div class="row">
     <div class="col-md-6">
-      <h1></h1>
+      <h1>{{company.name}}</h1>
       <img src="" />
-      <p>Status: </p>
-      <p>Bankrupt Companies:</p>
+      <p>Status: {{status}}</p>
+      <p>Bankrupt Companies: {{bankruptCompanies}}</p>
     </div>
     <div class="col-md-6">
-      <h1>Week </h1>
+      <h1>Week {{week}}</h1>
       <p>The companies are ranked according to their wealth. The first company to reach x kubars wins the game!</p>
       <ol>
-        <li>Company 1</li>
+        <li *ngFor="let company of rankings">{{company.name}} {{company.netWorth}}</li>
       </ol>
       <p>Game Difficulty Level: </p>
       <gaz-menu-item label="Begin Turn" colour="grey" link="game/planet-intro" ></gaz-menu-item>

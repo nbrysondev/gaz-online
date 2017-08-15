@@ -18,11 +18,15 @@ export class GameSettingsService {
     return this.settings;
   }
 
+  public setAll(settings: GameSettings) {
+    this.settings = settings;
+  }
+
   public get(property: string) {
     if (this.settings.hasOwnProperty(property)) {
       return this.settings[property];
     } else {
-      throw new Error("Unable to retrieve setting: " + property);
+      throw new Error('Unable to retrieve setting: ' + property);
     }
   }
 
@@ -30,7 +34,7 @@ export class GameSettingsService {
     if (this.settings.hasOwnProperty(property)) {
       this.settings[property] = value;
     } else {
-      throw new Error("Unable to set setting: " + property + " to value: " + value);
+      throw new Error('Unable to set setting: ' + property + ' to value: ' + value);
     }
   }
 

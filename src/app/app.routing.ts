@@ -1,7 +1,7 @@
 import {Routes, RouterModule} from '@angular/router';
 // Menu components
-import {MainMenuComponent,CompetitorsMenuComponent, DifficultyMenuComponent, PlanetsMenuComponent,
-        PlayersMenuComponent, ShipMenuComponent} from './components/menus';
+import { MainMenuComponent, CompetitorsMenuComponent, DifficultyMenuComponent, PlanetsMenuComponent,
+        PlayersMenuComponent, ShipMenuComponent, LoadGameComponent } from './components/menus';
 // Core component
 import {GameComponent, DepartComponent, GraphsComponent, HelpComponent, HyperspaceComponent,
         NewWeekComponent, IntroductionComponent, PlanetIntroComponent} from './components';
@@ -50,6 +50,10 @@ const appRoutes: Routes = [
           component: IntroductionComponent
         }
       ]
+    },
+    {
+      path: 'load-game',
+      component: LoadGameComponent
     },
     {
       path: 'game',

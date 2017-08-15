@@ -2,3 +2,16 @@ img {
   border-radius: 15px;
   border: 10px solid  #4a4a65;
 }
+
+ol {
+  counter-reset: list;
+}
+
+ol > li {
+  list-style: none;
+}
+
+ol > li:before {
+  content: counter(list, lower-alpha) ") ";
+  counter-increment: list;
+}

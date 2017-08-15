@@ -32,6 +32,7 @@ import { ContentService, SoundService, PlanetService, CommodityService, ShipServ
 import { ContentPipe, ContentFilterPipe } from './pipes';
 import { IntroductionComponent } from './components/introduction/introduction.component';
 import { PlanetIntroComponent } from './components/planet-intro/planet-intro.component';
+import { LoadGameComponent } from './components/menus/load-game/load-game.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { PlanetIntroComponent } from './components/planet-intro/planet-intro.com
     ContentPipe,
     ContentFilterPipe,
     IntroductionComponent,
-    PlanetIntroComponent
+    PlanetIntroComponent,
+    LoadGameComponent
   ],
   imports: [
     BrowserModule,

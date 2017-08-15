@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { CompanyService, PlanetService, GameSettingsService } from '.';
-import { Company } from '../models';
+import { Company, Planet, GameSettings } from '../models';
 import { Router } from '@angular/router';
 
+interface GameState {
+  companies: Array<Company>;
+  planets: Array<Planet>;
+  settings: GameSettings;
+}
 @Injectable()
 export class GameStateService {
 
+  private static namespace = 'OpenGaz';
   private week: number;
   private currentPlayer: number;
 
@@ -77,19 +83,41 @@ export class GameStateService {
     this.week++;
   }
 
-  public save() {
-
+  public save(slot?: number) {
+    const games = this.getSavedGames();
+    if (slot == null) {
+      games.push(this.getStateObject());
+    } else {
+      games[slot] = this.getStateObject();
+    }
+    localStorage.setItem(GameStateService.namespace , JSON.stringify(games));
   }
 
-  public load() {
-
+  public load(slot: number) {
+    const games = this.getSavedGames();
+    if (games.hasOwnProperty(slot)) {
+      this.companyService.addMultiple(games[slot].companies);
+      this.planetService.addMultiple(games[slot].planets);
+      this.gameSettings.setAll(games[slot].settings);
+      // @todo save the settings in this service!
+    }
+    // @todo route to somewhere?
   }
 
   public log() {
-    console.log({
+    console.log(this.getStateObject());
+  }
+
+  public getSavedGames(): Array<GameState> {
+    const stateObject = JSON.parse(localStorage.getItem(GameStateService.namespace));
+    return stateObject ? stateObject : [];
+  }
+
+  private getStateObject(): GameState {
+    return {
       companies: this.companyService.getAll(),
       planets: this.planetService.getAll(),
       settings: this.gameSettings.getAll()
-    });
+    };
   }
 }

@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-4">
+    <div  *ngFor="let slot of slots; let i = index">
+      <gaz-menu-item *ngIf="slot.active" colour="green" (onClick)="loadGame(index)" [label]="'Load Game ' + (i+1)" ></gaz-menu-item>
+      <gaz-menu-item *ngIf="!slot.active" disabled="true" colour="green" label="Empty" ></gaz-menu-item>
+    </div>
+    <gaz-menu-item colour="gold"  link="/" label="<< Back" ></gaz-menu-item>
+  </div>
+  <div class="col-md-8">
+    <div class="blurb">
+    </div>
+  </div>
+</div>

@@ -17,6 +17,7 @@ export interface CompanyContent extends GameEntity {
 * @extends CompanyContent
 * @param marketStrength {number}
 * @param netWorth       {number}
+* @param isBankrupt     {boolean}
 * @param ship           {Ship}
 * @param planet         {Planet}
 * @param commodities    {Array<Commodity>}
@@ -25,6 +26,7 @@ export interface CompanyContent extends GameEntity {
 export interface Company extends CompanyContent {
     marketStrength: number;
     netWorth: number;
+    isBankrupt: boolean;
     ship: Ship;
     planet: Planet;
     commodities: Array<Commodity>;
