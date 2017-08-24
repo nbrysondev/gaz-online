@@ -22,6 +22,10 @@ export class GameSettingsService {
     this.settings = settings;
   }
 
+  public clear() {
+    this.settings = null;
+  }
+
   public get(property: string) {
     if (this.settings.hasOwnProperty(property)) {
       return this.settings[property];

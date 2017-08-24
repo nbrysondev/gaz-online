@@ -37,7 +37,7 @@ export class PlanetService extends EntityService {
   public replace(oldPlanet: Planet, newPlanet: PlanetContent) {
     // Add the planet the player has chosen to the selected planets array
     this.entities = this.entities.map(
-      entity => entity === oldPlanet ? this.create(newPlanet, oldPlanet.position) : entity 
+      entity => entity === oldPlanet ? this.create(newPlanet, oldPlanet.position) : entity
     );
   }
 

@@ -18,11 +18,11 @@ export class PlayersMenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.soundService.play("main-menu-select.ogg");
+    this.soundService.play('main-menu-select.ogg');
   }
 
   public setPlayers(players: string) {
-    this.gameSettingsService.set("numOfPlayers", Number(players));
+    this.gameSettingsService.set('numOfPlayers', Number(players));
     this.companyService.addPlayerCompanies(Number(players));
   }
 

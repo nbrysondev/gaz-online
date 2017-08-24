@@ -11,7 +11,7 @@ interface GameState {
 @Injectable()
 export class GameStateService {
 
-  private static namespace = 'OpenGaz';
+  private static readonly namespace = 'OpenGaz';
   private week: number;
   private currentPlayer: number;
 
@@ -24,7 +24,6 @@ export class GameStateService {
     this.week = 0;
     this.currentPlayer = 0;
   }
-
 
   /**
   * Gets the current player.
@@ -53,6 +52,12 @@ export class GameStateService {
     }
   }
 
+  /**
+  * Initiaites everything required to start the game
+  *
+  * @function setup
+  * @returns {Company}
+  */
   public setup() {
     const company = this.companyService.getCompanyWithoutShip();
 
@@ -75,14 +80,30 @@ export class GameStateService {
 
   }
 
+  /**
+  *
+  * @function getWeek
+  * @returns {string}
+  */
   public getWeek() {
     return this.week;
   }
 
+  /**
+  *
+  * @function nextWeek
+  * @returns {string}
+  */
   public nextWeek() {
     this.week++;
   }
 
+  /**
+  * Saves all game data to browser localstorage
+  *
+  * @function save
+  * @param slot {number}
+  */
   public save(slot?: number) {
     const games = this.getSavedGames();
     if (slot == null) {
@@ -93,31 +114,67 @@ export class GameStateService {
     localStorage.setItem(GameStateService.namespace , JSON.stringify(games));
   }
 
+  /**
+  * Loads game data to browser localstorage
+  *
+  * @function load
+  * @param slot {number}
+  */
   public load(slot: number) {
+    this.clear();
     const games = this.getSavedGames();
     if (games.hasOwnProperty(slot)) {
-      this.companyService.addMultiple(games[slot].companies);
-      this.planetService.addMultiple(games[slot].planets);
+      this.companyService.loadMultiple(games[slot].companies);
+      this.planetService.loadMultiple(games[slot].planets);
       this.gameSettings.setAll(games[slot].settings);
-      // @todo save the settings in this service!
     }
     // @todo route to somewhere?
   }
 
+  /**
+  * Outputs all game state to the browser console
+  *
+  * @function log
+  */
   public log() {
     console.log(this.getStateObject());
   }
 
+  /**
+  * Returns an array of all saved games
+  *
+  * @function getSavedGames
+  * @returns {Array<GameState>}
+  */
   public getSavedGames(): Array<GameState> {
     const stateObject = JSON.parse(localStorage.getItem(GameStateService.namespace));
     return stateObject ? stateObject : [];
   }
 
+  /**
+  * Gets all game state
+  *
+  * @function getStateObject
+  * @returns {GameState}
+  */
   private getStateObject(): GameState {
     return {
       companies: this.companyService.getAll(),
       planets: this.planetService.getAll(),
       settings: this.gameSettings.getAll()
+    };
+  }
+
+  /**
+  * Clears current game state
+  *
+  * @function clear
+  */
+  public clear() {
+    return {
+      companies: this.companyService.clear(),
+      planets: this.planetService.clear(),
+      settings: this.gameSettings.clear()
     };
   }
 }

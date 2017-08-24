@@ -90,6 +90,20 @@ export abstract class EntityService {
   }
 
   /**
+  * Loads existing entities into the entity store
+  *
+  * @function loadMultiple
+  * @param entities {Array<GameEntity>}
+  */
+  public loadMultiple(entities: Array<GameEntity>): void {
+    entities.reduce((ents, entity) => {
+      ents.push(entity);
+      return ents;
+    }, this.entities);
+  }
+
+
+  /**
   * Replaces an entity with another entity
   *
   * @function replace
@@ -108,5 +122,6 @@ export abstract class EntityService {
   public clear() {
     this.entities = [];
   }
+  
 
 }

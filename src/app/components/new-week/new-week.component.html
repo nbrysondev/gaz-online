@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
       <h1>{{company.name}}</h1>
-      <img src="" />
+      <img src="{{company.ship.slug}}" />
       <p>Status: {{status}}</p>
       <p>Bankrupt Companies: {{bankruptCompanies}}</p>
     </div>
@@ -12,7 +12,7 @@
       <ol>
         <li *ngFor="let company of rankings">{{company.name}} {{company.netWorth}}</li>
       </ol>
-      <p>Game Difficulty Level: </p>
+      <p>Game Difficulty Level: {{difficulty}}</p>
       <gaz-menu-item label="Begin Turn" colour="grey" link="game/planet-intro" ></gaz-menu-item>
     </div>
   </div>

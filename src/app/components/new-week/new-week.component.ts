@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SoundService, CompanyService, GameStateService } from '../../services';
+import { SoundService, CompanyService, GameStateService, GameSettingsService } from '../../services';
 import { Company } from '../../models';
 
 @Component({
@@ -14,19 +14,22 @@ export class NewWeekComponent implements OnInit {
   public bankruptCompanies: string;
   public week: number;
   public rankings: Array<Company>;
+  public difficulty: string;
 
   constructor(
     private gameStateService: GameStateService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private gameSettingsService: GameSettingsService
   ) {
     // @todo REMOVE THIS WHEN COMPLETE
-    //this.gameStateService.load('DEV');
+    //this.gameStateService.save(0);
+    this.gameStateService.load(0);
   }
 
   ngOnInit() {
 
     // save the game state
-    this.gameStateService.save(0);
+    //this.gameStateService.save(0);
 
     // set template variables
     this.company = this.gameStateService.getCurrentPlayer();
@@ -34,5 +37,6 @@ export class NewWeekComponent implements OnInit {
     this.status = this.companyService.getCompanyStatus(this.company.netWorth);
     this.bankruptCompanies = this.companyService.getBankruptCompanies() || 'none';
     this.rankings = this.companyService.getCompaniesRanked();
+    this.difficulty = this.gameSettingsService.get('difficulty');
   }
 }

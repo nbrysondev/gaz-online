@@ -46,6 +46,7 @@ export class ShipMenuComponent implements OnInit {
 
   public selectShip() {
     this.companyService.addShipToCompany(this.company, this.selectedShip);
+    this.companyService.setCompanyName(this.company, this.companyName);
     this.soundService.stop();
   }
 }

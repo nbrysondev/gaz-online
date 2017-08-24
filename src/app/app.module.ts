@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import { ClarityModule } from "clarity-angular";
+import { ClarityModule } from 'clarity-angular';
 import { FormsModule } from '@angular/forms';
-import { routing }        from './app.routing';
+import { routing } from './app.routing';
 import { GlobalErrorHandler } from './exceptions/global-error-handler';
 
 import { AppComponent } from './app.component';
 // Menu components
-import { MainMenuComponent,CompetitorsMenuComponent, DifficultyMenuComponent, PlanetsMenuComponent,
+import { MainMenuComponent, CompetitorsMenuComponent, DifficultyMenuComponent, PlanetsMenuComponent,
          PlayersMenuComponent, ShipMenuComponent } from './components/menus';
 // UI
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
@@ -23,9 +23,9 @@ import { ExplorePlanetComponent, PlanetAboutComponent, PlanetNewsComponent,
         PlanetSpecialComponent, PlanetTimeComponent, PlanetWeatherComponent } from './components/explore-planet';
 // Guards
 import { GameGuard, PlanetGuard, NewGameGuard } from './guards';
-    
+
 // Services
-import { ContentService, SoundService, PlanetService, CommodityService, ShipService, CompanyService, 
+import { ContentService, SoundService, PlanetService, CommodityService, ShipService, CompanyService,
          GameSettingsService, GameStateService, InfoService } from './services';
 
 // Pipes

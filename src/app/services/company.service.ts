@@ -5,7 +5,8 @@ import { Company, Ship, CompanyContent } from '../models';
 @Injectable()
 export class CompanyService extends EntityService {
 
-  private static names = ['Merchant', 'Business Person', 'Trader', 'Entrepreneur'];
+  private static readonly names = ['Merchant', 'Business Person', 'Trader', 'Entrepreneur'];
+  private static readonly statuses = [];
 
   protected entities: Array<Company>;
   private currentPlayer: number;
@@ -31,9 +32,22 @@ export class CompanyService extends EntityService {
   * Adds the ship to the selected company
   *
   * @function addShipToCompany
+  * @param company {Company}
+  * @param ship {Ship}
   */
   public addShipToCompany(company: Company, ship: Ship) {
     company.ship = ship;
+  }
+
+  /**
+  * Set company name
+  *
+  * @function setCompanyName
+  * @param company {Company}
+  * @param name {string}
+  */
+  public setCompanyName(company: Company, name: string) {
+    company.name = name;
   }
 
   /**

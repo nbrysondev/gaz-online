@@ -3,6 +3,10 @@ img {
   border: 10px solid  #4a4a65;
 }
 
+p, li {
+  color: #fff;
+}
+
 ol {
   counter-reset: list;
 }
