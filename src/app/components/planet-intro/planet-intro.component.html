@@ -1,4 +1,8 @@
-<div class="wrapper" (click)="proceed()">
+<div class="wrapper" (click)="proceed()"  [ngStyle]="{backgroundImage: 'url('+planetUri+'/orbit.png)'}">
   <div class="row">
+    <div class="text">
+      <h1>Welcome to {{planet.name}}</h1>
+      <h2>{{planet.nickname}}</h2>
+    </div>
   </div>
 </div>

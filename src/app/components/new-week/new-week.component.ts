@@ -23,9 +23,8 @@ export class NewWeekComponent implements OnInit {
     private gameSettingsService: GameSettingsService,
     private router: Router
   ) {
-    // @todo REMOVE
-    // this.gameStateService.save(0);
-    //this.gameStateService.load(0);
+
+    this.gameStateService.save(0);
     this.company = this.gameStateService.getCurrentPlayer();
     if (this.company === null) {
       this.router.navigate(['/']);
@@ -33,9 +32,6 @@ export class NewWeekComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    // save the game state
-    // this.gameStateService.save(0);
 
     // set template variables
     this.week = this.gameStateService.getWeek();

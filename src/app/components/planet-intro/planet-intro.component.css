@@ -1,3 +1,21 @@
+h1, h2 {
+  font-weight: bold;
+  color: #fff;
+}
+h1 {
+  font-size: 3rem;
+}
 .wrapper {
   cursor: pointer;
+  height: 700px;
+  background-size: cover;
+}
+.row {
+  position: relative;
+}
+.text {
+  position: absolute;
+  right: 18%;
+  top: 100px;
+  text-align: center;
 }
