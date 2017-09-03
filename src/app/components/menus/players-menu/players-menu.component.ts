@@ -18,7 +18,7 @@ export class PlayersMenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.soundService.play('main-menu-select.ogg');
+    this.soundService.playBoing();
   }
 
   public setPlayers(players: string) {

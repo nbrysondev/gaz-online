@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-3"  *ngFor="let ship of ships">
         <div class="shipContainer">
-          <img class="shipImage" (click)="showShipDetails(ship)" src="assets/images/ships/{{ship.slug}}/large.png" />
+          <img class="shipImage" (click)="showShipDetails(ship)" src="{{ship.slug | assetUri: 'ships'}}/large.png" />
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
     <div class="col-md-8">
       <h1>{{selectedShip.name}}</h1>
       <div class="shipImageWrapper">
-        <img class="shipImage" src="assets/images/ships/{{selectedShip.slug}}/large.png" />
+        <img class="shipImage" src="{{selectedShip.slug | assetUri: 'ships'}}/large.png" />
       </div>
       <div class="shipBlurb">
         {{selectedShip.summary | contentFilter}}

@@ -27,7 +27,7 @@ export class ShipMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.soundService.play('modal-ping.ogg');
+    this.soundService.playFile('modal-ping.ogg');
   }
 
   public setName() {
@@ -36,7 +36,7 @@ export class ShipMenuComponent implements OnInit {
 
   public showShipDetails(ship: Ship) {
     this.selectedShip = ship;
-    this.soundService.play('ships/' + ship.slug + '.ogg');
+    this.soundService.playShipSound(ship);
   }
 
   public unselectShip() {

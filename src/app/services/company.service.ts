@@ -24,6 +24,7 @@ export class CompanyService extends EntityService {
   * @return {Array<Company>}
   */
   public getCompaniesRanked(): Array<Company> {
+    console.log(this.entities);
     return this.getAll().sort((companyA, companyB) =>  companyA.netWorth - companyB.netWorth);
   }
 
@@ -131,7 +132,7 @@ export class CompanyService extends EntityService {
         name: '',
         personality: '',
         marketStrength: null,
-        netWorth: null,
+        netWorth: 0,
         isBankrupt: false,
         ship: null,
         planet: null,

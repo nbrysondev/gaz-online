@@ -7,3 +7,10 @@
   position: relative;
   z-index: 0;
 }
+
+.spaceMenu {
+  background: url('assets/general/images/backgrounds/starfield.png');
+  border-radius: 15px;
+  margin-top: 20px;
+  position: relative;
+}

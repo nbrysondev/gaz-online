@@ -9,7 +9,7 @@
       <div class="competitorContainer">
         <h2>{{competitor.name}}</h2>
         <h3>{{competitor.personality}}</h3>
-        <img class="competitorImage" src="assets/images/companies/{{competitor.slug}}/large.png" />
+        <img class="competitorImage" src="{{competitor.slug | assetUri: 'companies'}}/large.png" />
       </div>
     </div>
   </div>

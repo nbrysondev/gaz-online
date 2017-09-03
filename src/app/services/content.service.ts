@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { PlanetContent, Ship, Commodity, CompanyContent } from '../models';
-import { GameContent, Planets, Ships, Commodities, Companies } from '../../assets/data';
+import { GameContent } from '../../assets/general/content';
+import { Planets } from '../../assets/planets/data';
+import { Ships } from '../../assets/ships/data';
+import { Commodities } from '../../assets/commodities/data';
+import { Companies } from '../../assets/companies/data';
 
 interface GameData {
-  content: Object,
-  planets: Array<PlanetContent>,
-  ships: Array<Ship>,
-  commodities: Array<Commodity>,
-  companies: Array<CompanyContent>
+  content: Object;
+  planets: Array<PlanetContent>;
+  ships: Array<Ship>;
+  commodities: Array<Commodity>;
+  companies: Array<CompanyContent>;
 }
 
 @Injectable()
@@ -15,7 +19,7 @@ export class ContentService {
 
   private gameData: GameData;
 
-  constructor() { 
+  constructor() {
     this.gameData = {
       content: GameContent,
       planets: Planets,
@@ -30,30 +34,30 @@ export class ContentService {
   * e.g. mainMenu.title
   */
   public get(property: string) {
-    let properties = property.split('.'),
-        content = this.gameData;
-  
-    for (let i=0; i < properties.length; i++) {
+    const properties = property.split('.');
+    let content = this.gameData;
 
-      let index = properties[i].match(/\[([^}]*)\]/);
+    for (let i = 0; i < properties.length; i++) {
+
+      const index = properties[i].match(/\[([^}]*)\]/);
       if (index) {
-        let property = properties[i].replace(/\[.*?\]/g, '');
-        content = content[property][index[1]]
+        const prop = properties[i].replace(/\[.*?\]/g, '');
+        content = content[prop][index[1]];
       } else {
         content = content[properties[i]];
       }
 
       switch(typeof content) {
-        case "number":
-        case "string":
+        case 'number':
+        case 'string':
           return this.parsePlaceholders(content.toString());
-        case "undefined":
-          return "";
+        case 'undefined':
+          return '';
       }
 
     }
 
-    return "";
+    return '';
   }
 
   public getCompanies(): Array<CompanyContent> {
@@ -76,13 +80,13 @@ export class ContentService {
   * Searches for placeholders within a content string and replaces them with the appropriate value
   */
   public parsePlaceholders(content: string) {
-    
-    let placeholders = content.match(/{([^}]*)}/g);
+
+    const placeholders = content.match(/{([^}]*)}/g);
 
     if (placeholders) {
       for (let i=0; i < placeholders.length; i++) {
-        let property = placeholders[i].replace(/[{}]/gi, '');
-        let phContent = this.get(property);
+        const property = placeholders[i].replace(/[{}]/gi, '');
+        const phContent = this.get(property);
         if (phContent) {
           content = content.replace(placeholders[i], phContent);
         }

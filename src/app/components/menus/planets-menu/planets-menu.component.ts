@@ -40,27 +40,27 @@ export class PlanetsMenuComponent implements OnInit {
     this.planetService.clear();
 
     // Create copy of the array
-    let tmp = this.contentService.getPlanets().slice(0);
-    
+    const tmp = this.contentService.getPlanets().slice(0);
+
     // Select any mandatory planets
     for (let i = 0; i < tmp.length; i++) {
       if (tmp[i].required) {
-        var removed = tmp.splice(i, 1);
+        const removed = tmp.splice(i, 1);
         this.planetService.add(removed[0]);
       }
     }
-    
-    var count = this.planetService.maxPlanets - this.planetService.count();
+
+    const count = this.planetService.maxPlanets - this.planetService.count();
     // Randomly select given number of planets from the planet content
     for (let i = 0; i < count; i++) {
-      var index = Math.floor(Math.random() * tmp.length);
-      var removed = tmp.splice(index, 1);
+      const index = Math.floor(Math.random() * tmp.length);
+      const removed = tmp.splice(index, 1);
       this.planetService.add(removed[0]);
     }
 
     this.unselectedPlanets = tmp;
     this.selectedPlanets = this.planetService.getAll();
-    this.soundService.play("main-menu-select.ogg");
+    this.soundService.playBoing();
   }
 
   /**
@@ -70,7 +70,6 @@ export class PlanetsMenuComponent implements OnInit {
   * @param selectedPlanet {Planet}
   */
   public replacePlanet(selectedPlanet: Planet): void {
-    
     // Add the planet the player has chosen to the selected planets array
     this.planetService.replace(this.planetToReplace, selectedPlanet);
     this.selectedPlanets = this.planetService.getAll();
@@ -80,7 +79,7 @@ export class PlanetsMenuComponent implements OnInit {
       planet => planet === selectedPlanet ? this.planetToReplace : planet
     );
 
-    this.soundService.play("main-menu-select.ogg");
+    this.soundService.playBoing();
     this.planetToReplace = null;
   }
 

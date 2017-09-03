@@ -12,9 +12,3 @@ h1 {
   margin: 0 50px;
   color: #fff;
 }
-
-.row {
-  background: url('../../../../assets/images/backgrounds/starfield.png');
-  border-radius: 15px;
-  margin-top: 20px;
-}

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
       <h1>{{company.name}}</h1>
-      <img src="{{company.ship.slug}}" />
+      <img src="{{company.ship.slug | assetUri: 'ships'}}/large.png" />
       <p>Status: {{status}}</p>
       <p>Bankrupt Companies: {{bankruptCompanies}}</p>
     </div>

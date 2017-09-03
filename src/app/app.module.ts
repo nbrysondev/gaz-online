@@ -29,7 +29,9 @@ import { ContentService, SoundService, PlanetService, CommodityService, ShipServ
          GameSettingsService, GameStateService, InfoService } from './services';
 
 // Pipes
-import { ContentPipe, ContentFilterPipe } from './pipes';
+import { ContentPipe, ContentFilterPipe, AssetUriPipe } from './pipes';
+
+// To be organised
 import { IntroductionComponent } from './components/introduction/introduction.component';
 import { PlanetIntroComponent } from './components/planet-intro/planet-intro.component';
 import { LoadGameComponent } from './components/menus/load-game/load-game.component';
@@ -74,7 +76,8 @@ import { LoadGameComponent } from './components/menus/load-game/load-game.compon
     ContentFilterPipe,
     IntroductionComponent,
     PlanetIntroComponent,
-    LoadGameComponent
+    LoadGameComponent,
+    AssetUriPipe
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,7 @@ import { LoadGameComponent } from './components/menus/load-game/load-game.compon
     PlanetService,
     CompanyService,
     InfoService,
-    GameGuard, 
+    GameGuard,
     PlanetGuard,
     NewGameGuard,
     {

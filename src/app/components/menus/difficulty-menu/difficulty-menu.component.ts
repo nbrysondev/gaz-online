@@ -8,7 +8,7 @@ import { SoundService, GameSettingsService } from '../../../services';
 })
 export class DifficultyMenuComponent implements OnInit {
 
-  public difficultyLevels = ["Tutorial", "Novice", "Beginner", "Intermediate", "Expert", "Master"];
+  public difficultyLevels = ['Tutorial', 'Novice', 'Beginner', 'Intermediate', 'Expert', 'Master'];
 
   constructor(
     private soundService: SoundService,
@@ -16,11 +16,11 @@ export class DifficultyMenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.soundService.play("main-menu-select.ogg");
+    this.soundService.playBoing();
   }
 
   public setDifficulty(difficulty: string) {
-    this.gameSettings.set("difficulty", difficulty);
+    this.gameSettings.set('difficulty', difficulty);
   }
 
 }

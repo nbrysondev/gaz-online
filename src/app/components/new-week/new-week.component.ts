@@ -22,14 +22,14 @@ export class NewWeekComponent implements OnInit {
     private gameSettingsService: GameSettingsService
   ) {
     // @todo REMOVE THIS WHEN COMPLETE
-    //this.gameStateService.save(0);
+    // this.gameStateService.save(0);
     this.gameStateService.load(0);
   }
 
   ngOnInit() {
 
     // save the game state
-    //this.gameStateService.save(0);
+    // this.gameStateService.save(0);
 
     // set template variables
     this.company = this.gameStateService.getCurrentPlayer();

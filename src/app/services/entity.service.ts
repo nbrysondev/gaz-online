@@ -122,6 +122,5 @@ export abstract class EntityService {
   public clear() {
     this.entities = [];
   }
-  
 
 }

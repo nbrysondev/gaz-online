@@ -10,17 +10,17 @@ import { SoundService, ContentService, CompanyService } from '../../../services'
 export class CompetitorsMenuComponent implements OnInit {
 
   public competitors: Array<CompanyContent> = [];
- 
+
   constructor(
-    private soundService: SoundService, 
+    private soundService: SoundService,
     private contentService: ContentService,
     private companyService: CompanyService
-  ) { 
+  ) {
     this.competitors = this.contentService.getCompanies();
   }
 
   ngOnInit() {
-    this.soundService.play("main-menu-select.ogg");
+    this.soundService.playBoing();
   }
 
   public setCompetitors(competitors: Array<CompanyContent>) {

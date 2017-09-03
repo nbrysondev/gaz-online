@@ -14,7 +14,7 @@ export class IntroductionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.soundService.play('characters/lender.ogg');
+    this.soundService.playFile('lender.ogg');
   }
 
   public checkTurnState() {

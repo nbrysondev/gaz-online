@@ -1,12 +1,5 @@
 /* this is terrible - needs refactoring */
 
-.row {
-  background: url('../../../../assets/images/backgrounds/starfield.png');
-  border-radius: 15px;
-  margin-top: 20px;
-  position: relative;
-}
-
 .col-md-12 {
   position: relative;
 }
