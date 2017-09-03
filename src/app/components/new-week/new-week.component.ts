@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SoundService, CompanyService, GameStateService, GameSettingsService } from '../../services';
 import { Company } from '../../models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'gaz-new-week',
@@ -19,11 +20,16 @@ export class NewWeekComponent implements OnInit {
   constructor(
     private gameStateService: GameStateService,
     private companyService: CompanyService,
-    private gameSettingsService: GameSettingsService
+    private gameSettingsService: GameSettingsService,
+    private router: Router
   ) {
-    // @todo REMOVE THIS WHEN COMPLETE
+    // @todo REMOVE
     // this.gameStateService.save(0);
-    this.gameStateService.load(0);
+    //this.gameStateService.load(0);
+    this.company = this.gameStateService.getCurrentPlayer();
+    if (this.company === null) {
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit() {
@@ -32,7 +38,6 @@ export class NewWeekComponent implements OnInit {
     // this.gameStateService.save(0);
 
     // set template variables
-    this.company = this.gameStateService.getCurrentPlayer();
     this.week = this.gameStateService.getWeek();
     this.status = this.companyService.getCompanyStatus(this.company.netWorth);
     this.bankruptCompanies = this.companyService.getBankruptCompanies() || 'none';

@@ -67,6 +67,16 @@ export abstract class EntityService {
   }
 
   /**
+  * Returns a random game entity from the entities store
+  *
+  * @function getRandom
+  * @return {GameEntity}
+  */
+  public getRandom(): GameEntity {
+    return this.entities[Math.floor(Math.random() * this.count())];
+  }
+
+  /**
   * Creates a single entity instance from a CompanyContent instance and stores it
   *
   * @function add

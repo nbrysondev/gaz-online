@@ -73,6 +73,18 @@ export class GameStateService {
       }
       this.currentPlayer++;
     } else {
+
+      // All companies have ships - now lets send each to a different planet
+      const numOfPlanets = this.planetService.count();
+      // Get random planet index
+      let i = Math.floor(Math.random() * numOfPlanets);
+      this.companyService.getAll().map(comp => {
+        // if we're out of bounds, reset...
+        if (i >= numOfPlanets) { i = 0; }
+        comp.planet = this.planetService.get(i);
+        i++;
+      });
+
       // All set...start the game.
       this.currentPlayer = 0;
       this.router.navigate(['game/new-week']);

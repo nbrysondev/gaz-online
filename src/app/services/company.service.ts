@@ -12,7 +12,9 @@ export class CompanyService extends EntityService {
   private currentPlayer: number;
 
 
-  constructor(protected shipService: ShipService) {
+  constructor(
+    protected shipService: ShipService
+  ) {
     super();
     this.currentPlayer = 0;
   }
