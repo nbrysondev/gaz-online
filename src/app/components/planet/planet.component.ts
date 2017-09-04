@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Company } from '../../models';
+import { GameStateService } from '../../services';
 
 @Component({
   selector: 'gaz-planet',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetComponent implements OnInit {
 
-  constructor() { }
+  public company: Company;
+
+  constructor(private gameStateService: GameStateService) { }
 
   ngOnInit() {
+    this.company = this.gameStateService.getCurrentPlayer();
+    console.log(this.company);
   }
 
 }

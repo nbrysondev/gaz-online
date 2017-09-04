@@ -1,20 +1,34 @@
-<div class="row">
-  <div class="col-md-12">
-    <gaz-menu-item label="Stock Market"></gaz-menu-item>
-    <gaz-menu-item label="Money: "></gaz-menu-item>
-    <gaz-menu-item label="Bank: "></gaz-menu-item>
-    <gaz-menu-item label="Loan: "></gaz-menu-item>
-    <gaz-menu-item label="lenderName: lenderLoan"></gaz-menu-item>
+<div class="row spaceMenu">
+  <div class="col-md-4">
+    <div class="planet">
+      <img src="{{company.planet.slug | assetUri: 'planets'}}/large.png" />
+      <p>Journey (Leave {{company.planet.name}})</p>
+    </div>
+    <gaz-menu-item colour="blue" label="Stock Market"></gaz-menu-item>
+    <gaz-menu-item colour="blue" label="Money: "></gaz-menu-item>
+    <gaz-menu-item colour="blue" label="Bank: "></gaz-menu-item>
+    <gaz-menu-item colour="blue" label="Loan: "></gaz-menu-item>
+    <gaz-menu-item colour="blue" label="lenderName: lenderLoan"></gaz-menu-item>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <gaz-menu-item label="Pick Up Passengers: passengers"></gaz-menu-item>
-    <gaz-menu-item label="Advertise for Next Planet: money"></gaz-menu-item>
-    <gaz-menu-item label="Crew Wages Owed: bankAccount"></gaz-menu-item>
-    <gaz-menu-item label="Taxes Owed: bankLoan"></gaz-menu-item>
-    <gaz-menu-item label="Insurance/Cost: "></gaz-menu-item>
-    <gaz-menu-item label="Explore Planet: "></gaz-menu-item>
-    <gaz-menu-item label="File Options: "></gaz-menu-item>
+  <div class="col-md-7">
+    <h1>{{company.name}}</h1>
+    <div class="row">
+      <gaz-menu-item class="col-md-4" colour="gold" label="Marketplace"></gaz-menu-item>
+      <gaz-menu-item class="col-md-4" colour="gold" label="Supply"></gaz-menu-item>
+      <gaz-menu-item class="col-md-4" colour="gold" label="Warehouse"></gaz-menu-item>
+    </div>
+    <div class="row">
+      <div class="col-md-12 activities">
+        <gaz-menu-item colour="green" label="Pick Up Passengers: passengers"></gaz-menu-item>
+        <gaz-menu-item colour="green" label="Advertise for Next Planet: money"></gaz-menu-item>
+        <gaz-menu-item colour="green" label="Crew Wages Owed: bankAccount"></gaz-menu-item>
+        <gaz-menu-item colour="green" label="Taxes Owed: bankLoan"></gaz-menu-item>
+        <gaz-menu-item colour="green" label="Insurance/Cost: "></gaz-menu-item>
+        <gaz-menu-item colour="green" label="Explore Planet: "></gaz-menu-item>
+        <gaz-menu-item colour="green" label="File Options: "></gaz-menu-item>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">
   </div>
 </div>

@@ -1,0 +1,53 @@
+p {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding-top: 15px;
+  margin-top: 0px;
+}
+
+h1 {
+  color: #fff;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+gaz-menu-item[colour="gold"] {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+
+>>> button {
+  margin-bottom: 5px !important;
+}
+
+>>> button.gold {
+  text-align: center !important;
+  padding: 60px !important;
+}
+
+.planet {
+  text-align: center;
+  cursor: pointer;
+  background-color: #212121;
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.planet:hover {
+  background-color: #101010;
+}
+
+.planet img {
+  width: 100%;
+}
+
+.activities {
+  padding-left: 0px;
+  padding-right: 0px;
+}
