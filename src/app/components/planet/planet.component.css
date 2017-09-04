@@ -51,3 +51,11 @@ gaz-menu-item[colour="gold"] {
   padding-left: 0px;
   padding-right: 0px;
 }
+
+.fuel {
+  background-color: #212121;
+  border-radius: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+}

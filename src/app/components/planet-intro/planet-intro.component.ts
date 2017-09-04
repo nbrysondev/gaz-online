@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GameStateService } from '../../services';
+import { GameStateService, SoundService } from '../../services';
 import { AssetUriPipe } from '../../pipes';
 import { Planet } from '../../models';
 import { Router } from '@angular/router';
@@ -16,8 +16,9 @@ export class PlanetIntroComponent implements OnInit {
   public planetUri: string;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private gameStateService: GameStateService,
+    private soundService: SoundService,
     private assetUriPipe: AssetUriPipe
   ) {}
 
@@ -25,9 +26,11 @@ export class PlanetIntroComponent implements OnInit {
     const company = this.gameStateService.getCurrentPlayer();
     this.planet = company.planet;
     this.planetUri = this.assetUriPipe.transform(this.planet.slug, 'planets');
+    this.soundService.playPlanetSound(company.planet);
   }
 
   public proceed() {
+    this.soundService.stop();
     this.router.navigate(['/game/graphs']);
   }
 }

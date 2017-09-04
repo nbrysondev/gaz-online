@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Ship } from '../models';
+import { Ship, Planet } from '../models';
 
 @Injectable()
 export class SoundService {
@@ -31,6 +31,10 @@ export class SoundService {
 
   public playShipSound(ship: Ship) {
     this.play('ships/' + ship.slug + '/sound.ogg');
+  }
+
+  public playPlanetSound(planet: Planet) {
+    this.play('planets/' + planet.slug + '/sound.ogg');
   }
 
   public stop() {

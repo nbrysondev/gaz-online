@@ -11,11 +11,12 @@ export class PlanetComponent implements OnInit {
 
   public company: Company;
 
-  constructor(private gameStateService: GameStateService) { }
+  constructor(
+    private gameStateService: GameStateService
+  ) { }
 
   ngOnInit() {
     this.company = this.gameStateService.getCurrentPlayer();
-    console.log(this.company);
   }
 
 }
